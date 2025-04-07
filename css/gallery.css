@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #202124;
+    line-height: 1.6;
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4285F4; /* Google Blue */
+    color: white;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.year-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.year-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #202124;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.year-btn:hover {
+    background-color: #e8f0fe;
+}
+
+.year-btn.active {
+    background-color: #DB4437; /* Google Red */
+    color: white;
+}
+
+main {
+    padding: 20px 0;
+}
+
+.event-selector {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#eventDropdown {
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #202124;
+    cursor: pointer;
+    width: 300px;
+    max-width: 100%;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto; /* Varied sizes */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Randomize sizes */
+.photo-item:nth-child(3n) img { height: 150px; }
+.photo-item:nth-child(3n + 1) img { height: 200px; }
+.photo-item:nth-child(3n + 2) img { height: 250px; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG VJIT | Google Developers Group - VJIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/events.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!--Header-->
+    <div id="header-placeholder"></div>
+
+    <!-- Interactive Hero Section with Particle Network -->
+    <section id="home" class="relative overflow-hidden bg-gray-900 text-white min-h-screen flex items-center">
+        <canvas id="particle-network" class="absolute top-0 left-0 w-full h-full z-1"></canvas>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 hero-content relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                    <span class="text-sm font-medium">Welcome to GDG VJIT</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span id="typing-text" class="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200"></span>
+                </h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 opacity-90">
+                    Join the most vibrant tech circle at Vidya Jyothi Institute of Technology and build the future, one line of code at a time.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                    <a href="#events" class="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg card-scale">
+                        Explore Events <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#join" class="border-2 border-white hover:bg-white/20 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 card-scale">
+                        Become a Member <i class="fas fa-users ml-2"></i>
+                    </a>
+                </div>
+                <!-- <div class="flex justify-center space-x-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold counter" data-target="6">0</div>
+                        <div class="text-sm opacity-80">Events</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold counter" data-target="50">0</div>
+                        <div class="text-sm opacity-80">Members</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold counter" data-target="10">0</div>
+                        <div class="text-sm opacity-80">Projects</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+                <div class="floating-card bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg card-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 p-3 rounded-lg mr-4">
+                            <i class="fas fa-mobile-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">App Development</h3>
+                    </div>
+                    <p class="text-white/80">Learn Android, Flutter and build cross-platform apps with our workshops.</p>
+                </div>
+                <div class="floating-card bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg card-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 p-3 rounded-lg mr-4">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">AI & ML</h3>
+                    </div>
+                    <p class="text-white/80">Explore TensorFlow, ML models and AI applications with experts.</p>
+                </div>
+                <div class="floating-card bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg card-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 p-3 rounded-lg mr-4">
+                            <i class="fas fa-cloud text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Cloud Computing</h3>
+                    </div>
+                    <p class="text-white/80">Master Google Cloud Platform and Firebase for scalable applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Interactive Tabs -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What does GDG VJIT do?</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We're more than just a tech community - we're a family of passionate developers.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8">
+                        <div class="flex space-x-4 mb-6">
+                            <button class="tab-button active px-4 py-2 rounded-lg font-medium bg-blue-100 text-blue-600" data-tab="mission">Our Mission</button>
+                            <button class="tab-button px-4 py-2 rounded-lg font-medium text-gray-600 hover:bg-gray-100" data-tab="benefits">Benefits</button>
+                            <button class="tab-button px-4 py-2 rounded-lg font-medium text-gray-600 hover:bg-gray-100" data-tab="tech">Technologies</button>
+                        </div>
+                        <div class="tab-content active" id="mission-tab">
+                            <p class="text-gray-600 mb-6">GDG VJIT is dedicated to creating an inclusive environment where students can learn, share, and innovate with Google technologies. We bridge the gap between academic learning and industry requirements.</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-check text-blue-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Hands-on workshops led by industry experts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-check text-blue-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Access to Google Developer resources and programs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-check text-blue-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Networking with like-minded developers and professionals</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content hidden" id="benefits-tab">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-award text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Certificates for workshop participation</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-book text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Access premium courses and resources for free</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-project-diagram text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Collaboration on real-world projects</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-trophy text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-600">Chance to participate in national and international hackathons</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content hidden" id="tech-tab">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fab fa-android text-green-600"></i>
+                                    <span class="font-medium">Android</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fa-brands fa-flutter text-blue-500"></i>
+                                    <span class="font-medium">Flutter</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fas fa-fire text-orange-600"></i>
+                                    <span class="font-medium">Firebase</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fa-solid fa-diagram-project text-orange-500"></i>
+                                    <span class="font-medium">TensorFlow</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fa-solid fa-cloud text-blue-400"></i>
+                                    <span class="font-medium">Google Cloud</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex items-center card-scale">
+                                    <i class="fas fa-globe text-blue-600"></i>
+                                    <span class="font-medium">Web</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#join" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors glow-on-hover card-scale">
+                        Join Our Community <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="bg-gray-50 rounded-2xl p-2 shadow-lg card-scale">
+                        <img src="/assets/home_page_event_photo.jpg" alt="GDG VJIT Team" class="rounded-xl w-full">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 card-scale">
+                        <a href="events.html" class="block hover:opacity-90 transition duration-200">
+                            <div class="flex items-center cursor-pointer">
+                              <div class="bg-blue-100 p-3 rounded-lg mr-3">
+                                <i class="fas fa-calendar-check text-blue-600"></i>
+                              </div>
+                              <div>
+                                <div class="text-sm text-gray-500">Next Event</div>
+                                <div class="font-semibold">Python Workshop</div>
+                              </div>
+                            </div>
+                          </a>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section with Functional Registration -->
+    <section id="events" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">GDG Club Events</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Join our interactive sessions and take your skills to the next level</p>
+            </div>
+
+            <div id="events-list-view">
+                <div id="past-events" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Event Card (Past) (BUILD WITH AI) (Technical Talk) -->
+                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
+                data-type="talk" 
+                data-date="2024-11-07" 
+                data-full-description="The workshop offered a comprehensive introduction to the fundamentals of Artificial Intelligence, highlighting its wide-ranging applications across various industries. The session began with an insightful introduction to AI by Hemanth Kumar, followed by an engaging overview of Machine Learning presented by Zaid Mohammad. Attendees participated in a hands-on AI task and took part in an interactive quiz session, which added a dynamic and practical element to the event. Nehal further enriched the workshop by discussing the diverse real-world applications of AI. The event concluded with valuable career guidance and a roadmap for aspiring AI enthusiasts." 
+                data-photos='["assets/Event_images/build_with_ai_1.jpg", "assets/Event_images/build_with_ai_2.png", "assets/Event_images/build_with_ai_3.png","assets/Event_images/build_with_ai_4.png"]' 
+                data-reel="https://www.instagram.com/reel/DCMnirShsyg/?igsh=Z3BhZGQ0MDM1bHZ2" 
+                data-learn='["Core AI and ML concepts ", "Supervised, Unsupervised, and Reinforcement Learning", "Real-world AI applications", "AI tools and frameworks (TensorFlow, Keras)", "Career paths in AI"]' 
+                data-prerequisites='["Basic programming skills ", "Familiarity with Python "]'>
+                <div class="relative h-48 bg-gradient-to-r from-purple-500 to-purple-600">
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-7xl"></i>
+                    </div>
+                    <div class="event-type-badge talk-badge">Technical Talk</div>
+                    <div class="event-status-badge past-badge talk-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">BUILD WITH AI </h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>225</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Nov 07, 2024</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>12:30pm - 03:30pm</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">A workshop providing foundational AI knowledge, covering its applications...</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>E-Block Auditorium</span>
+                        </div>
+                        <button class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Event Card (Past) (Solution's Challenge Info Session) (Technical Talk)-->
+                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
+                data-type="talk" 
+                data-date="2024-12-23" 
+                data-full-description="The Solutions Challenge Info Session organized by the GDG team for 1st-year students served as an engaging introduction to the world of Web Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic first-year students, the session provided a clear understanding of front-end and back-end technologies, essential tools, and modern development frameworks. The event also featured an overview of the Solution Challenge—Google’s flagship global competition—encouraging students to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs). Attendees gained insights into current industry trends, career opportunities, and valuable learning resources to kickstart their development journey. The session concluded with a dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin building real-world projects." 
+                data-photos='["/assets/Event_images/info_session_1.png", "/assets/Event_images/info_session_2.png", "/assets/Event_images/info_session_3.png"]' 
+                data-reel="https://www.instagram.com/reel/DEt8JylM012/?igsh=enRldTQ3ZGhjbHBt" 
+                data-learn='["Fundamentals of Web Development (HTML, CSS, JavaScript) ", "Introduction to Front-end and Back-end frameworks", "Basics of App Development and platform choices (Android, iOS)", "Key industry trends in Web and App DevelopmentRoadmap for further learning and career opportunities in development"]' 
+                data-prerequisites='["Basic computer literacy", "Interest in Web and App Development"]'>
+                <div class="relative h-48 bg-gradient-to-r from-purple-500 to-purple-600">
+                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-globe text-white text-7xl"></i>
+                        </div>
+                        <div class="event-type-badge talk-badge">Technical Talk</div>
+                        <div class="event-status-badge past-badge talk-badge">Past Event</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-900">Info Session</h3>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-1"></i>
+                                <span>100</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Dec 23, 2024</span>
+                            <i class="far fa-clock ml-4 mr-2"></i>
+                            <span>12:30pm - 03:30pm</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 line-clamp-2">The Solutions Challenge Info Session organized by the GDG team for 1st-year students served as an engaging introduction to the world of Web Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic first-year students, the session provided a clear understanding of front-end and back-end technologies, essential tools, and modern development frameworks. The event also featured an overview of the Solution Challenge—Google’s flagship global competition—encouraging students to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs). Attendees gained insights into current industry trends, career opportunities, and valuable learning resources to kickstart their development journey. The session concluded with a dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin building real-world projects.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>E-Block Computer Lab</span>
+                            </div>
+                            <button class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card (Past) (IDEATHON 2025) (Hands-on Workshop) -->
+                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
+                data-type="workshop" 
+                data-date="2025-01-31" 
+                data-full-description="This was a creative, pitch-based event where students showcased innovative ideas aligned with the United Nations Sustainable Development Goals (SDGs). The event featured multiple rounds of idea presentations, during which participants received constructive feedback to refine their concepts. Judging criteria focused on creativity, feasibility, and potential impact. The event culminated in a final pitching round, followed by the announcement of the winners who impressed the panel with their forward-thinking solutions." 
+                data-photos='["/assets/Event_images/ideathon_1.png", "/assets/Event_images/ideathon_2.png", "/assets/Event_images/ideathon_3.png", "/assets/Event_images/ideathon_4.png"]' 
+                data-reel="https://www.instagram.com/reel/DFx39GABTmg/?igsh=MXNvOXhvM3hmM2xuZg==" 
+                data-learn='["Developing innovative solutions", "Effective presentation and communication skills", "Aligning ideas with real-world challenges", "Critical thinking and problem-solving", "Team collaboration and networking"]' 
+                data-prerequisites='["Interest in problem-solving ", "Teamwork and brainstorming skills "]'>
+                <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
+                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white text-7xl"></i>
+                        </div>
+                        <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
+                        <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-900">IDEATHON 2025</h3>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-1"></i>
+                                <span>196</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Jan 31, 2025</span>
+                            <i class="far fa-clock ml-4 mr-2"></i>
+                            <span>2 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 line-clamp-2">This was a creative, pitch-based event where students showcased innovative ideas aligned with... </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>E-Block Auditorium</span>
+                            </div>
+                            <button class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="events.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors glow-on-hover card-scale">
+                    View All Events
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section with Form -->
+    <section id="join" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-gray-900">Join GDG VJIT</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">
+                  Register now to be a part of our collaborative tech community and get involved in exciting developer opportunities!
+                </p>
+              </div>
+              
+            <div class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl shadow-xl overflow-hidden card-scale">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-10 text-white">
+                        <h2 class="text-3xl font-bold mb-4">Interested in Joining GDG VJIT?</h2>
+                        <p class="mb-6 opacity-90">Become a part of our student developer community and explore opportunities to grow, learn, and build together.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Attend free workshops and hands-on sessions</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Access curated learning resources</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Connect with peers and professionals</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Work on real projects to enhance your portfolio</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center">
+                            <i class="fas fa-info-circle mr-3"></i>
+                            <span class="text-sm opacity-80">Open to all students of VJIT.</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-10">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Join Our Community</h3>
+                        <form id="join-form" class="space-y-4">
+                            <div>
+                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="year" class="block text-sm font-medium text-gray-700 mb-1">Year of Study</label>
+                                <select id="year" name="year" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="branch" class="block text-sm font-medium text-gray-700 mb-1">Branch</label>
+                                <input type="text" id="branch" name="branch" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Areas of Interest</label>
+                                <textarea id="interest" name="interest" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors glow-on-hover">
+                                    Submit Application
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Meet Our Core Team</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">The dedicated students powering GDG VJIT's mission</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Organizer (Amena Yasmeen) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-orange-500">
+                        <img src="/assets/member_img/amena1.png" alt="Amena Yasmeen image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Amena Yasmeen</h3>
+                        <p class="text-orange-600 font-medium text-sm mt-1">Lead Organizer</p>
+                        <p class="text-gray-500 text-sm mt-2">Computer Science, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/amenayasmeen/" class="text-orange-500 hover:text-orange-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:amena.22yasmeen@gmail.com" class="text-orange-500 hover:text-orange-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Technical Lead (Parth Asawa) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-blue-500">
+                        <img src="/assets/member_img/parth1.png" alt="Parth Asawa image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Parth Asawa</h3>
+                        <p class="text-blue-600 font-medium text-sm mt-1">Technical Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Computer Science, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/parthasawa/" class="text-blue-500 hover:text-blue-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/parth.asawa?igsh=cXlpMXdudXVxbGcy" class="text-blue-500 hover:text-blue-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:parthasawa1124@gmail.com" class="text-blue-500 hover:text-blue-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Design Lead (Dasari Yashasvi) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-purple-500">
+                        <img src="/assets/member_img/yashasvi1.png" alt="Dasari Yashasvi image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Dasari Yashasvi</h3>
+                        <p class="text-purple-600 font-medium text-sm mt-1">Design Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Computer Science, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/yashasvi-dasari-6bba20265/" class="text-purple-500 hover:text-purple-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/yashhasvi__/profilecard/?igsh=MXFvZHFrcXptajRrMQ==" class="text-purple-500 hover:text-purple-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:dasariyashasvi@gmail.com" class="text-purple-500 hover:text-purple-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Marketing Lead (Anirudh Singh) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-red-500">
+                        <img src="/assets/member_img/anirudh1.png" alt="Anirudh Singh image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Anirudh Singh</h3>
+                        <p class="text-red-600 font-medium text-sm mt-1">Marketing Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Information Technology, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/anirudh-singh-495127324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-red-500 hover:text-red-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/_.anirudh_singh._?igsh=Z2JqZDkwaWxvM3Ni" class="text-red-500 hover:text-red-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:singhanirudh516@gmail.com" class="text-red-500 hover:text-red-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Productions Lead (Suhaib Safwan Ahmed) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-yellow-500">
+                        <img src="/assets/member_img/safwan1.png" alt="Suhaib Safwan Ahmed image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Suhaib Safwan Ahmed</h3>
+                        <p class="text-yellow-600 font-medium text-sm mt-1">Productions Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Computer Science, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="http://linkedin.com/in/suhaib-safwan-89aa00359" class="text-yellow-500 hover:text-yellow-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/suhaibsafwan.ahmed?igsh=bGdiY3ExaDFnNTcx&utm_source=qr" class="text-yellow-500 hover:text-yellow-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:suhaibsafwanahmed@gmail.com" class="text-yellow-500 hover:text-yellow-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizing Lead (Rohan Kumar) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-green-500">
+                        <img src="/assets/member_img/rohan1.png" alt="Rohan Kumar image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Rohan Kumar</h3>
+                        <p class="text-green-600 font-medium text-sm mt-1">Organizing Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Computer Science, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/rohan-kumar-105891259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-green-500 hover:text-green-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/rohankumar9762?igsh=MXRwajVtMDJ5M2F4" class="text-green-500 hover:text-green-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:rkyadav7981@gmail.com" class="text-green-500 hover:text-green-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Documentation Lead (Akshaya) -->
+                <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative h-32 bg-pink-500">
+                        <img src="/assets/member_img/akshaya1.png" alt="Akshaya image" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md">
+                    </div>
+                    <div class="pt-16 pb-6 px-6 text-center">
+                        <h3 class="text-xl font-semibold text-gray-900">Konatham Akshaya</h3>
+                        <p class="text-pink-600 font-medium text-sm mt-1">Documentation Lead</p>
+                        <p class="text-gray-500 text-sm mt-2">Information Technology, 3rd Year</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/akshaya-reddy-konatham-8ab714279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-pink-500 hover:text-pink-700 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/akshaya_reddy_konatham?igsh=bWM1ZXh4Y2NidDZm" class="text-pink-500 hover:text-pink-700 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:akshayareddykonatham@gmail.com" class="text-pink-500 hover:text-pink-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="team.html" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 glow-on-hover">
+                    Meet Full Team
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Have questions or want to collaborate? We'd love to hear from you!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
+                                <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Address</h4>
+                                <p class="mt-1 text-gray-600">Vidya Jyothi Institute of Technology, Aziz Nagar, Hyderabad, Telangana 500075</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Email</h4>
+                                <p class="mt-1 text-gray-600">dsc@vjit.ac.in</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
+                                <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Phone</h4>
+                                <p class="mt-1 text-gray-600">+91 7337525861</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/profile.php?id=61572195376190" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://x.com/dscvjit?t=3T-XB5fdtIxin53T1E6G2w&s=09" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-colors">
+                                <i class="fas fa-x"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@gdscVJIT" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.instagram.com/GDG_vjit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/GDG-vjit/" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-gray-50 rounded-xl shadow-md p-8 card-scale">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input type="text" id="contact-name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="contact-email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="contact-message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors glow-on-hover">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Custom Prompt Box -->
+    <div id="custom-prompt" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+            <h3 id="prompt-title" class="text-lg font-medium text-gray-900 mb-2">Success</h3>
+            <p id="prompt-message" class="text-gray-600 mb-4">Your message has been sent successfully!</p>
+            <button id="prompt-close" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">GDG VJIT</h3>
+                    <p class="text-gray-400">
+                        Google Developer Group at Vidya Jyothi Institute of Technology, Hyderabad.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://x.com/dscvjit?t=3T-XB5fdtIxin53T1E6G2w&s=09" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/GDG_vjit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/GDG-vjit/" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@gdscVJIT" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61572195376190" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.threads.net/@GDG_vjit" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://developer.android.com/docs" class="text-gray-400 hover:text-white">Android</a></li>
+                        <li><a href="https://docs.flutter.dev" class="text-gray-400 hover:text-white">Flutter</a></li>
+                        <li><a href="https://firebase.google.com/docs" class="text-gray-400 hover:text-white">Firebase</a></li>
+                        <li><a href="https://cloud.google.com/docs" class="text-gray-400 hover:text-white">Google Cloud</a></li>
+                        <li><a href="https://www.tensorflow.org/resources" class="text-gray-400 hover:text-white">TensorFlow</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">From the Organizers Desk</h3>
+                    <p class="text-gray-400 italic">
+                        "At GDG VJIT, we rise together<br>one idea, one line of code, one dream at a time.
+                        So take that first step. We’re with you, always."
+                          
+                         <br><br>– Amena Yasmeen
+                        <br>GDG VJIT Organizer, 24-25.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <h2 class="text-white text-sm">
+                    © 2025 GDG VJIT. All rights reserved.
+                </h2>
+                <div>
+                    <h3>Built by the GDG VJIT Team | 2024–25 Edition</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-blue-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Event Modal -->
+<div id="event-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"></span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Event Title</h3>
+                                <div class="mt-2 flex items-center text-gray-500">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    <span id="modal-date">Date</span>
+                                    <i class="far fa-clock ml-4 mr-2"></i>
+                                    <span id="modal-time">Time</span>
+                                </div>
+                            </div>
+                            <button id="close-modal" class="text-gray-400 hover:text-gray-500"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="mt-4">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 p-3 rounded-lg mr-4"><i class="fas fa-code text-blue-600"></i></div>
+                                <div>
+                                    <h4 class="text-gray-900">Event Details</h4>
+                                    <p class="text-sm text-gray-500" id="modal-location">Location</p>
+                                </div>
+                            </div>
+
+                            <!-- Photo Carousel -->
+                            <div class="mb-4">
+                                <h4 class="text-gray-900 mb-2">Event Photos</h4>
+                                <div class="relative">
+                                    <div id="photo-carousel" class="overflow-hidden rounded-lg">
+                                        <div id="carousel-images" class="flex transition-transform duration-300"></div>
+                                    </div>
+                                    <button id="carousel-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-left"></i></button>
+                                    <button id="carousel-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <!-- Add pagination dots container -->
+                                <div id="carousel-dots" class="flex justify-center mt-2 space-x-2"></div>
+                            </div>
+
+                            <!-- Watch Reel Button -->
+                            <div class="mb-4">
+                                <a id="watch-reel-btn" href="#" target="_blank" class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium transition-colors hover:from-blue-700 hover:to-blue-600">
+                                    <i class="fab fa-instagram mr-2"></i> Watch Reel
+                                </a>
+                            </div>
+
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h4 class="text-gray-900 mb-2">About this event</h4>
+                                <p class="text-gray-600" id="modal-description">Event description will be populated here.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h5 class="text-sm text-gray-500">Participants Attended</h5>
+                                    <p class="text-gray-900" id="modal-seats">Seats</p>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm text-gray-500">Event Type</h5>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded" id="modal-type">Type</span>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm text-gray-500">Difficulty</h5>
+                                    <p class="text-gray-900" id="modal-difficulty">Difficulty</p>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm text-gray-500">Duration</h5>
+                                    <p class="text-gray-900" id="modal-duration">Duration</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class=" text-gray-900 mb-2">What you'll learn</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-learn">
+                                    <li>Item 1</li>
+                                    <li>Item 2</li>
+                                    <li>Item 3</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class=" text-gray-900 mb-2">Prerequisites</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-prerequisites">
+                                    <li>Item 1</li>
+                                    <li>Item 2</li>
+                                </ul>
+                            </div>
+                            
+                            
+                            <!-- Timer and Register Button Section -->
+                            <div id="registration-btn" class="flex items-center justify-between mb-4">
+                                <a href="https://example.com/register" id="register-link" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors" target="_blank">Register Now</a>
+                            </div>
+
+                            <!-- Registration Form (Hidden by default) -->
+                            <div id="registration-form" class="mt-6 hidden">
+                                <h4 class="font-medium text-gray-900 mb-4">Register for this Event</h4>
+                                <form id="event-registration-form">
+                                    <div class="mb-4">
+                                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                        <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="college" class="block text-sm font-medium text-gray-700">College Name</label>
+                                        <input type="text" id="college" name="college" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="year" class="block text-sm font-medium text-gray-700">Year of Study</label>
+                                        <select id="year" name="year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                            <option value="">Select Year</option>
+                                            <option value="1">1st Year</option>
+                                            <option value="2">2nd Year</option>
+                                            <option value="3">3rd Year</option>
+                                            <option value="4">4th Year</option>
+                                        </select>
+                                    </div>
+                                    <input type="hidden" id="event-title" name="eventTitle">
+                                    <button type="submit" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">Submit Registration</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/forms.js" defer></script>
+</body>
+</html>

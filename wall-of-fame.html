@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG VJIT - Wall of Fame</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/wall-of-fame.css">
+    
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+    <main class="flex-grow px-4 py-8">
+        
+        <div class="max-w-6xl mx-auto">
+            <!-- Hero Section -->
+            <section class="text-center mb-12 pt-[120px]">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                    Celebrating Our Stars ✨
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Honoring the exceptional achievements of GDG VJIT alumni who have made their mark through internships, projects, talks, and community leadership.
+                </p>
+            </section>
+            
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button class="category-filter active px-4 py-2 transition" data-category="all">All Stars</button>
+                <button class="category-filter px-4 py-2 transition" data-category="internships">Internships</button>
+                <button class="category-filter px-4 py-2 transition" data-category="projects">Projects</button>
+                <button class="category-filter px-4 py-2 transition" data-category="talks">Talks</button>
+                <button class="category-filter px-4 py-2 transition" data-category="legends">Community Legends</button>
+            </div>
+            
+            <!-- All Alumni Grid -->
+            <section>
+                <h2 class="text-2xl font-semibold mb-6 flex items-center">
+                    <span class="google-blue w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-users text-white"></i>
+                    </span>
+                    Our Honorees
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="alumni-grid">
+                    <!-- Alumni Card 1 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships projects">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Karan Mehta</h3>
+                                <p class="text-sm text-gray-600">Batch of 2021</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Microsoft Intern</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Built campus navigation app used by 2000+ students and secured internship at Microsoft.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition" 
+                                data-name="Karan Mehta"
+                                data-batch="2021"
+                                data-achievements="Microsoft Intern, Project Lead"
+                                data-details="Developed a comprehensive campus navigation app that became essential for 2000+ students. The app featured real-time updates, event notifications, and indoor mapping. This project helped secure a prestigious internship at Microsoft where he worked on Azure Maps."
+                                data-linkedin="https://linkedin.com/in/karanmehta">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 2 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="talks legends">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Neha Gupta</h3>
+                                <p class="text-sm text-gray-600">Batch of 2020</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-red text-white text-xs px-2 py-1 rounded">Keynote Speaker</span>
+                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Community Lead</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Spoke at 10+ national conferences about women in tech and organized 30+ events.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Neha Gupta"
+                                data-batch="2020"
+                                data-achievements="Keynote Speaker, Community Lead"
+                                data-details="As a passionate advocate for women in tech, Neha has spoken at 10+ national conferences including TechDiva and WomenWhoCode. She organized 30+ community events through GDG VJIT, increasing female participation by 40%. Currently mentoring 50+ young women pursuing tech careers."
+                                data-linkedin="https://linkedin.com/in/nehagupta">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 3 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="projects">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Arjun Rao</h3>
+                                <p class="text-sm text-gray-600">Batch of 2022</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Developed open-source library for Flutter with 5k+ GitHub stars.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Arjun Rao"
+                                data-batch="2022"
+                                data-achievements="Project Lead"
+                                data-details="Created FlutterX, an open-source library that simplifies state management in Flutter applications. The project gained 5k+ GitHub stars within 6 months and is now used by developers worldwide. Featured in Flutter Weekly and recommended by Google Developer Experts."
+                                data-linkedin="https://linkedin.com/in/arjunrao">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 4 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Divya Nair</h3>
+                                <p class="text-sm text-gray-600">Batch of 2021</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Amazon Intern</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Secured internship at Amazon through GDG's interview prep workshops.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Divya Nair"
+                                data-batch="2021"
+                                data-achievements="Amazon Intern"
+                                data-details="Leveraged GDG VJIT's interview preparation workshops to secure a competitive internship at Amazon. Worked on AWS Lambda optimization projects during the internship, resulting in a 15% performance improvement. Received a full-time return offer upon graduation."
+                                data-linkedin="https://linkedin.com/in/divyanair">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 5 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="legends">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Vikram Singh</h3>
+                                <p class="text-sm text-gray-600">Batch of 2019</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Founding Member</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Instrumental in establishing GDG VJIT chapter and its initial growth.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Vikram Singh"
+                                data-batch="2019"
+                                data-achievements="Founding Member"
+                                data-details="As one of the founding members of GDG VJIT, Vikram established the chapter's vision and organized the first 15 events. Grew the community from 5 members to 200+ in the first year. His leadership set the foundation for what GDG VJIT is today."
+                                data-linkedin="https://linkedin.com/in/vikramsingh">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 6 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="talks projects">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Pooja Reddy</h3>
+                                <p class="text-sm text-gray-600">Batch of 2020</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-red text-white text-xs px-2 py-1 rounded">Speaker</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Gave TEDx talk on AR/VR and developed educational VR platform.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Pooja Reddy"
+                                data-batch="2020"
+                                data-achievements="Speaker, Project Lead"
+                                data-details="Delivered a popular TEDx talk on 'The Future of Education Through AR/VR' which has 500k+ views. Developed EduVR, an immersive learning platform that's being piloted in 10 schools. Won the National Innovation Challenge for this project."
+                                data-linkedin="https://linkedin.com/in/poojareddy">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 7 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships projects">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Aditya Joshi</h3>
+                                <p class="text-sm text-gray-600">Batch of 2022</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Goldman Sachs</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Hackathon Winner</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Won national fintech hackathon leading to internship at Goldman Sachs.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Aditya Joshi"
+                                data-batch="2022"
+                                data-achievements="Goldman Sachs Intern, Hackathon Winner"
+                                data-details="Developed a blockchain-based settlement system that won the National FinTech Hackathon. This achievement led to a summer internship at Goldman Sachs where he worked on their Marquee platform. Currently developing an open-source financial analysis toolkit."
+                                data-linkedin="https://linkedin.com/in/adityajoshi">
+                            View Details
+                        </button>
+                    </div>
+                    
+                    <!-- Alumni Card 8 -->
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="legends">
+                        <div class="flex items-start mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold">Meera Krishnan</h3>
+                                <p class="text-sm text-gray-600">Batch of 2018</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Mentor</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Mentored 100+ students over 4 years, many now at top tech companies.</p>
+                        <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
+                                data-name="Meera Krishnan"
+                                data-batch="2018"
+                                data-achievements="Mentor"
+                                data-details="Has mentored 100+ students through GDG VJIT's mentorship program over 4 years. 30+ of her mentees are now at FAANG companies. Known for her personalized guidance and career roadmap sessions. Currently a Senior Engineer at Google while continuing to mentor students."
+                                data-linkedin="https://linkedin.com/in/meerakrishnan">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="mt-16 text-center bg-white rounded-xl shadow-md p-8">
+                <h2 class="text-2xl font-semibold mb-4">Inspired by Our Alumni?</h2>
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                    Join GDG VJIT today and start your journey towards becoming our next Wall of Fame honoree!
+                </p>
+                <button class="google-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition">
+                    Join Our Community
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="alumni-modal" class="modal fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+        
+        <div class="modal-container bg-white w-full max-w-2xl mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex items-center">
+                        <img id="modal-profile-img" src="" alt="Profile" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 id="modal-name" class="text-xl font-semibold"></h3>
+                            <p id="modal-batch" class="text-gray-600"></p>
+                        </div>
+                    </div>
+                    <button id="modal-close-btn" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mb-6" id="modal-achievements">
+                    <!-- Achievements will be inserted here -->
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-2">Achievement Details:</h4>
+                    <p id="modal-details" class="text-gray-700"></p>
+                </div>
+                
+                <div class="flex justify-end space-x-4">
+                    <button id="modal-connect-btn" class="flex items-center google-blue text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        <i class="fab fa-linkedin-in mr-2"></i> Connect on LinkedIn
+                    </button>
+                    <button id="modal-close-btn-2" class="border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">GDG VJIT</h3>
+                    <p class="text-gray-400">
+                        Google Developer Group at Vidya Jyothi Institute of Technology, Hyderabad.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://x.com/dscvjit?t=3T-XB5fdtIxin53T1E6G2w&s=09" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/GDG_vjit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/GDG-vjit/" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@gdscVJIT" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61572195376190" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.threads.net/@GDG_vjit" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://developer.android.com/docs" class="text-gray-400 hover:text-white">Android</a></li>
+                        <li><a href="https://docs.flutter.dev" class="text-gray-400 hover:text-white">Flutter</a></li>
+                        <li><a href="https://firebase.google.com/docs" class="text-gray-400 hover:text-white">Firebase</a></li>
+                        <li><a href="https://cloud.google.com/docs" class="text-gray-400 hover:text-white">Google Cloud</a></li>
+                        <li><a href="https://www.tensorflow.org/resources" class="text-gray-400 hover:text-white">TensorFlow</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">From the Organizers' Desk</h3>
+                    <p class="text-gray-400 italic">
+                        "At GDG VJIT, we rise together<br>one idea, one line of code, one dream at a time.
+                        So take that first step. We’re with you, always.
+                          
+                         <br><br>– Amena Yasmeen
+                        <br>GDG VJIT Organizer, 24-25.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <h2 class="text-white text-sm">
+                    © 2025 GDG VJIT. All rights reserved.
+                </h2>
+                <div>
+                    <h3>Built by the GDG VJIT Team | 2024–25 Edition</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/wall-of-fame.js"></script>
+</body>
+</html>

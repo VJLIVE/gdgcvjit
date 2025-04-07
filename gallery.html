@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG VJIT - Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <header>
+            <h1>GDG VJIT Gallery</h1>
+            <div class="year-buttons">
+                <button class="year-btn active" data-year="2024-2025">2024-2025</button>
+                <button class="year-btn" data-year="2023-2024">2023-2024</button>
+                <button class="year-btn" data-year="2022-2023">2022-2023</button>
+                <button class="year-btn" data-year="all">All</button>
+            </div>
+        </header>
+        <main>
+            <div class="event-selector">
+                <select id="eventDropdown" onchange="updatePhotos()"></select>
+            </div>
+            <div class="photo-grid" id="photoGrid"></div>
+        </main>
+    </div>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

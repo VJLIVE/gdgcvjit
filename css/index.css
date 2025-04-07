@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+    
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-bubble {
+    position: relative;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.floating-card {
+    animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.floating-card:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.floating-card:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-20px) rotateY(10deg); }
+    100% { transform: translateY(0px) rotateY(0deg); }
+}
+
+.event-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.glow-on-hover {
+    transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.6);
+}
+
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.counter {
+    font-size: 3rem;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+/* New Scale Animation */
+.card-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-scale:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Update existing hover effects */
+.event-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.6);
+    transform: scale(1.03);
+}
+
+/* Dynamic Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.dynamic-gradient {
+    background: linear-gradient(270deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* 3D Floating Elements */
+.floating-3d {
+    transform-style: preserve-3d;
+    animation: float3d 8s ease-in-out infinite;
+}
+
+@keyframes float3d {
+    0% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); }
+    50% { transform: translateY(-20px) rotateY(10deg) rotateX(5deg); }
+    100% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); }
+}
+
+/* Three.js Canvas */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#particle-network {
+    position: absolute;
+    pointer-events: none; /* Prevents canvas from blocking interactions */
+}
+
+/* Existing styles remain unchanged, append these at the bottom */
+
+/* Team Card Styles */
+.team-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.team-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.1) translateY(50%) translateX(-50%);
+}
+
+.team-card .social-links a {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .social-links a {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .team-card {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .team-card img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .team-card .pt-16 {
+        padding-top: 3.5rem;
+    }
+}
+
+/* Ensure typing text container maintains height */
+#typing-text {
+    display: inline-block; /* Ensures min-height respects content flow */
+}
+
+.font-medium{
+    padding-left: 10px;
+}
+
+#custom-prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+}
+
+#custom-prompt.hidden {
+    display: none;
+}
+
+#custom-prompt > div {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    max-width: 20rem;
+    width: 100%;
+    text-align: center;
+}
+
+#prompt-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+#prompt-message {
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+#prompt-close {
+    background-color: #2563eb;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+
+#prompt-close:hover {
+    background-color: #1d4ed8;
+}
+
+#carousel-dots span {
+    display: inline-block;
+}
+
+#carousel-dots span.bg-blue-600 {
+    background-color: #3b82f6; /* Ensure blue is prominent */
+    transform: scale(1.2); /* Optional: Slightly enlarge active dot */
+}

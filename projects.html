@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects with GDG VJIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-purple-50 py-16" style="padding-top: 120px;">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Projects with GDG VJIT</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Explore innovative projects created by our talented community members. Click on any project to view detailed information.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button id="submit-project" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition shadow-md">
+                    Submit Your Project
+                </button>
+                <button id="learn-more" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-full font-medium transition">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <!-- Projects Grid -->
+<section class="py-12 container mx-auto px-4">
+    <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Featured Projects</h2>
+        <div class="relative">
+            <select id="category-filter" class="appearance-none bg-white border border-gray-300 rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="all">All Categories</option>
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile Apps</option>
+                <option value="ml">Machine Learning</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="open">Open Source</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <i class="fas fa-chevron-down text-gray-500"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="mobile" onclick="openModal('project1')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">Smart Campus Navigator</h3>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Completed</span>
+                </div>
+                <p class="text-gray-600 mb-4">An interactive map application for campus navigation with AR features.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Flutter</span>
+                    <span class="tech-tag bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Firebase</span>
+                    <span class="tech-tag bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">ARCore</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="web" onclick="openModal('project2')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">Data Visualization Dashboard</h3>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">In Progress</span>
+                </div>
+                <p class="text-gray-600 mb-4">Interactive dashboard for visualizing complex datasets with real-time updates.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
+                    <span class="tech-tag bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">D3.js</span>
+                    <span class="tech-tag bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Node.js</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="mobile ml" onclick="openModal('project3')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">EcoTrack Carbon Footprint</h3>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Completed</span>
+                </div>
+                <p class="text-gray-600 mb-4">Mobile app that tracks your carbon footprint and suggests eco-friendly alternatives.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Flutter</span>
+                    <span class="tech-tag bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">TensorFlow</span>
+                    <span class="tech-tag bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Firebase</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="web open" onclick="openModal('project4')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">CodeCollab IDE</h3>
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Planning</span>
+                </div>
+                <p class="text-gray-600 mb-4">Real-time collaborative code editor with built-in video calling for remote teams.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
+                    <span class="tech-tag bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">WebRTC</span>
+                    <span class="tech-tag bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">MongoDB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="ml web" onclick="openModal('project5')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">AI Resume Builder</h3>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Completed</span>
+                </div>
+                <p class="text-gray-600 mb-4">Generates optimized resumes based on job descriptions using NLP techniques.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Python</span>
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Flask</span>
+                    <span class="tech-tag bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NLTK</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer" data-category="cloud" onclick="openModal('project6')">
+            <div class="h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Project Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">Health Monitoring System</h3>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">In Progress</span>
+                </div>
+                <p class="text-gray-600 mb-4">IoT-based system for real-time health monitoring of elderly patients.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Arduino</span>
+                    <span class="tech-tag bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Python</span>
+                    <span class="tech-tag bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">IoT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Project Modals -->
+    <!-- Modal 1 -->
+    <div id="project1" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 invisible">
+        <div class="modal-content bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform translate-y-10">
+            <div class="relative">
+                <button onclick="closeModal('project1')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 z-10">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+                <div class="h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Project Image" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">Smart Campus Navigator</h2>
+                            <div class="flex items-center space-x-4">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Completed</span>
+                                <span class="text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> June 2023</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/GDG-vjit/smart-campus-navigator" target="_blank" 
+                           class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-md flex items-center space-x-2 transition">
+                            <i class="fab fa-github"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Project Description</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The Smart Campus Navigator is an interactive mobile application designed to help students, faculty, and visitors navigate our university campus with ease. 
+                            The app features augmented reality wayfinding, indoor navigation, and points of interest. Users can search for specific buildings, classrooms, or facilities 
+                            and get turn-by-turn directions with AR overlays. The system also provides accessibility features for visually impaired users.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Technologies Used</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Flutter</span>
+                                <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Firebase</span>
+                                <span class="tech-tag bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">ARCore</span>
+                                <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">Google Maps API</span>
+                                <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">Dart</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Project Features</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Augmented Reality navigation</li>
+                                <li>Indoor positioning system</li>
+                                <li>Accessibility mode for visually impaired</li>
+                                <li>Event location integration</li>
+                                <li>Offline map support</li>
+                                <li>Building search with filters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Team Members</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Priya Sharma</h4>
+                                    <p class="text-sm text-gray-500">Lead Developer</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Rahul Patel</h4>
+                                    <p class="text-sm text-gray-500">UI/UX Designer</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Ananya Gupta</h4>
+                                    <p class="text-sm text-gray-500">Backend Developer</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="project2" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 invisible">
+        <div class="modal-content bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform translate-y-10">
+            <div class="relative">
+                <button onclick="closeModal('project2')" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 z-10">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+                <div class="h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                         alt="Project Image" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">Data Visualization Dashboard</h2>
+                            <div class="flex items-center space-x-4">
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">In Progress</span>
+                                <span class="text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Started: March 2023</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/GDG-vjit/data-viz-dashboard" target="_blank" 
+                           class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-md flex items-center space-x-2 transition">
+                            <i class="fab fa-github"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Project Description</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The Data Visualization Dashboard is a powerful web application that transforms complex datasets into interactive, 
+                            visually appealing charts and graphs. Designed for researchers and data analysts, it supports multiple data formats, 
+                            real-time data streaming, and collaborative features. The dashboard allows users to create custom visualizations, 
+                            apply filters, and share insights with team members. Our goal is to make data analysis accessible to non-technical users 
+                            while providing advanced features for experts.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Technologies Used</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">React</span>
+                                <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">D3.js</span>
+                                <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">Node.js</span>
+                                <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">MongoDB</span>
+                                <span class="tech-tag bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">TypeScript</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Project Features</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Interactive chart builder with drag-and-drop</li>
+                                <li>Real-time data streaming support</li>
+                                <li>Collaborative dashboard editing</li>
+                                <li>Export visualizations in multiple formats</li>
+                                <li>User authentication and permissions</li>
+                                <li>Custom color schemes and themes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Team Members</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Arjun Mehta</h4>
+                                    <p class="text-sm text-gray-500">Frontend Lead</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Neha Reddy</h4>
+                                    <p class="text-sm text-gray-500">Data Visualization Expert</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Team Member" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Vikram Singh</h4>
+                                    <p class="text-sm text-gray-500">Backend Developer</p>
+                                    <a href="#" class="text-blue-500 text-sm hover:underline">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Custom Notification Modals -->
+<div id="submit-notification" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 invisible">
+    <div class="modal-content bg-white rounded-xl w-full max-w-md transform translate-y-10">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Submit Your Project</h3>
+                <button onclick="closeNotification('submit-notification')" class="text-gray-600 hover:text-gray-800">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Project submission form coming soon! Please contact GDG VJIT to submit your project.</p>
+            <div class="flex justify-end">
+                <button onclick="closeNotification('submit-notification')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium transition">
+                    Got it
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="learn-notification" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 invisible">
+    <div class="modal-content bg-white rounded-xl w-full max-w-md transform translate-y-10">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Learn More</h3>
+                <button onclick="closeNotification('learn-notification')" class="text-gray-600 hover:text-gray-800">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Learn more about GDG VJIT projects! Check our <a href="events.html" class="text-blue-600 hover:underline">events page</a>.</p>
+            <div class="flex justify-end">
+                <button onclick="closeNotification('learn-notification')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium transition">
+                    Okay
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+   <!-- Footer -->
+   <footer class="bg-gray-800 text-white pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">GDG VJIT</h3>
+                <p class="text-gray-400">
+                    Google Developer Group at Vidya Jyothi Institute of Technology, Hyderabad.
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="https://x.com/dscvjit?t=3T-XB5fdtIxin53T1E6G2w&s=09" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/GDG_vjit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/GDG-vjit/" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@gdscVJIT" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572195376190" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.threads.net/@GDG_vjit" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-threads"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="events.html" class="text-gray-400 hover:text-white">Events</a></li>
+                    <li><a href="projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                    <li><a href="team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                    <li><a href="wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://developer.android.com/docs" class="text-gray-400 hover:text-white">Android</a></li>
+                    <li><a href="https://docs.flutter.dev" class="text-gray-400 hover:text-white">Flutter</a></li>
+                    <li><a href="https://firebase.google.com/docs" class="text-gray-400 hover:text-white">Firebase</a></li>
+                    <li><a href="https://cloud.google.com/docs" class="text-gray-400 hover:text-white">Google Cloud</a></li>
+                    <li><a href="https://www.tensorflow.org/resources" class="text-gray-400 hover:text-white">TensorFlow</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">From the Organizers' Desk</h3>
+                <p class="text-gray-400 italic">
+                    "At GDG VJIT, we rise together<br>one idea, one line of code, one dream at a time.
+                    So take that first step. We’re with you, always.
+                      
+                     <br><br>– Amena Yasmeen
+                    <br>GDG VJIT Organizer, 24-25.
+                </p>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <h2 class="text-white text-sm">
+                © 2025 GDG VJIT. All rights reserved.
+            </h2>
+            <div>
+                <h3>Built by the GDG VJIT Team | 2024–25 Edition</h3>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/header.js" defer></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

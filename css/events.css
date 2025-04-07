@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+}
+
+.event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%; /* Prevent overflow */
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+}
+
+.event-type-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.event-status-badge {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.workshop-badge {
+    background-color: #4285F4;
+    color: white;
+}
+
+.hackathon-badge {
+    background-color: #EA4335;
+    color: white;
+}
+
+.talk-badge {
+    background-color: #a855f7;
+    color: white;
+}
+
+.study-jam-badge {
+    background-color: #10b5b5;
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: #4285F4;
+    color: white;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+
+.event-image-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#photo-carousel {
+    position: relative;
+    max-width: 100%;
+    height: 300px; /* Consider using min-height or a variable for flexibility */
+}
+
+#carousel-images img {
+    width: 100%;
+    height: 300px; /* Match container height */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+#carousel-prev, #carousel-next {
+    transition: background-color 0.3s ease; /* Optimized transition */
+}
+
+#carousel-prev:hover, #carousel-next:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+}
+
+/* Existing styles remain unchanged */
+
+
+#carousel-dots span.bg-blue-600 {
+    background-color: #3b82f6; /* Ensure blue is prominent */
+    transform: scale(1.2); /* Optional: Slightly enlarge active dot */
+}

@@ -1,0 +1,23 @@
+.google-blue { background-color: #4285F4; }
+.google-red { background-color: #EA4335; }
+.google-yellow { background-color: #FBBC05; }
+.google-green { background-color: #34A853; }
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.category-filter.active {
+    border-bottom: 3px solid #4285F4;
+    font-weight: 600;
+    color: #4285F4;
+}
+
+.modal {
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay {
+    background-color: rgba(0,0,0,0.5);
+}
