@@ -7,12 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/wall-of-fame.css">
-    
 </head>
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
     <main class="flex-grow px-4 py-8">
-        
         <div class="max-w-6xl mx-auto">
             <!-- Hero Section -->
             <section class="text-center mb-12 pt-[120px]">
@@ -20,10 +18,9 @@
                     Celebrating Our Stars ✨
                 </h1>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Honoring the exceptional achievements of GDG VJIT alumni who have made their mark through internships, projects, talks, and community leadership.
+                    Honoring the exceptional achievements of GDG VJIT alumni who have made their mark through internships, projects, talks, and Hackathons.
                 </p>
             </section>
-            
             
             <!-- Category Filters -->
             <div class="flex flex-wrap justify-center gap-4 mb-10">
@@ -31,7 +28,7 @@
                 <button class="category-filter px-4 py-2 transition" data-category="internships">Internships</button>
                 <button class="category-filter px-4 py-2 transition" data-category="projects">Projects</button>
                 <button class="category-filter px-4 py-2 transition" data-category="talks">Talks</button>
-                <button class="category-filter px-4 py-2 transition" data-category="legends">Community Legends</button>
+                <button class="category-filter px-4 py-2 transition" data-category="Hackathon">Hackathon</button>
             </div>
             
             <!-- All Alumni Grid -->
@@ -47,47 +44,49 @@
                     <!-- Alumni Card 1 -->
                     <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships projects">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Karan Mehta</h3>
-                                <p class="text-sm text-gray-600">Batch of 2021</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Microsoft Intern</span>
-                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Intern</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Built campus navigation app used by 2000+ students and secured internship at Microsoft.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition" 
-                                data-name="Karan Mehta"
-                                data-batch="2021"
-                                data-achievements="Microsoft Intern, Project Lead"
-                                data-details="Developed a comprehensive campus navigation app that became essential for 2000+ students. The app featured real-time updates, event notifications, and indoor mapping. This project helped secure a prestigious internship at Microsoft where he worked on Azure Maps."
-                                data-linkedin="https://linkedin.com/in/karanmehta">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Intern, Project"                               
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
                     
                     <!-- Alumni Card 2 -->
-                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="talks legends">
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="talks Hackathon">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Neha Gupta</h3>
-                                <p class="text-sm text-gray-600">Batch of 2020</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-red text-white text-xs px-2 py-1 rounded">Keynote Speaker</span>
-                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Community Lead</span>
+                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Talks</span>
+                            <span class="google-red text-white text-xs px-2 py-1 rounded">Hackathon</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Spoke at 10+ national conferences about women in tech and organized 30+ events.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Neha Gupta"
-                                data-batch="2020"
-                                data-achievements="Keynote Speaker, Community Lead"
-                                data-details="As a passionate advocate for women in tech, Neha has spoken at 10+ national conferences including TechDiva and WomenWhoCode. She organized 30+ community events through GDG VJIT, increasing female participation by 40%. Currently mentoring 50+ young women pursuing tech careers."
-                                data-linkedin="https://linkedin.com/in/nehagupta">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Talks, Hackathon"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
@@ -95,22 +94,23 @@
                     <!-- Alumni Card 3 -->
                     <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="projects">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Arjun Rao</h3>
-                                <p class="text-sm text-gray-600">Batch of 2022</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Developed open-source library for Flutter with 5k+ GitHub stars.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Arjun Rao"
-                                data-batch="2022"
-                                data-achievements="Project Lead"
-                                data-details="Created FlutterX, an open-source library that simplifies state management in Flutter applications. The project gained 5k+ GitHub stars within 6 months and is now used by developers worldwide. Featured in Flutter Weekly and recommended by Google Developer Experts."
-                                data-linkedin="https://linkedin.com/in/arjunrao">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Project"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
@@ -118,45 +118,47 @@
                     <!-- Alumni Card 4 -->
                     <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Divya Nair</h3>
-                                <p class="text-sm text-gray-600">Batch of 2021</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Amazon Intern</span>
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Intern</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Secured internship at Amazon through GDG's interview prep workshops.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Divya Nair"
-                                data-batch="2021"
-                                data-achievements="Amazon Intern"
-                                data-details="Leveraged GDG VJIT's interview preparation workshops to secure a competitive internship at Amazon. Worked on AWS Lambda optimization projects during the internship, resulting in a 15% performance improvement. Received a full-time return offer upon graduation."
-                                data-linkedin="https://linkedin.com/in/divyanair">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Intern"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
                     
                     <!-- Alumni Card 5 -->
-                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="legends">
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="Hackathon">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Vikram Singh</h3>
-                                <p class="text-sm text-gray-600">Batch of 2019</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Founding Member</span>
+                            <span class="google-red text-white text-xs px-2 py-1 rounded">Hackathon</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Instrumental in establishing GDG VJIT chapter and its initial growth.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Vikram Singh"
-                                data-batch="2019"
-                                data-achievements="Founding Member"
-                                data-details="As one of the founding members of GDG VJIT, Vikram established the chapter's vision and organized the first 15 events. Grew the community from 5 members to 200+ in the first year. His leadership set the foundation for what GDG VJIT is today."
-                                data-linkedin="https://linkedin.com/in/vikramsingh">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Hackathon"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
@@ -164,23 +166,24 @@
                     <!-- Alumni Card 6 -->
                     <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="talks projects">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Pooja Reddy</h3>
-                                <p class="text-sm text-gray-600">Batch of 2020</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-red text-white text-xs px-2 py-1 rounded">Speaker</span>
-                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project Lead</span>
+                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Talks</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Gave TEDx talk on AR/VR and developed educational VR platform.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Pooja Reddy"
-                                data-batch="2020"
-                                data-achievements="Speaker, Project Lead"
-                                data-details="Delivered a popular TEDx talk on 'The Future of Education Through AR/VR' which has 500k+ views. Developed EduVR, an immersive learning platform that's being piloted in 10 schools. Won the National Innovation Challenge for this project."
-                                data-linkedin="https://linkedin.com/in/poojareddy">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Talks, Project"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
@@ -188,46 +191,48 @@
                     <!-- Alumni Card 7 -->
                     <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="internships projects">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Aditya Joshi</h3>
-                                <p class="text-sm text-gray-600">Batch of 2022</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Goldman Sachs</span>
-                            <span class="google-green text-white text-xs px-2 py-1 rounded">Hackathon Winner</span>
+                            <span class="google-blue text-white text-xs px-2 py-1 rounded">Intern</span>
+                            <span class="google-green text-white text-xs px-2 py-1 rounded">Project</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Won national fintech hackathon leading to internship at Goldman Sachs.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Aditya Joshi"
-                                data-batch="2022"
-                                data-achievements="Goldman Sachs Intern, Hackathon Winner"
-                                data-details="Developed a blockchain-based settlement system that won the National FinTech Hackathon. This achievement led to a summer internship at Goldman Sachs where he worked on their Marquee platform. Currently developing an open-source financial analysis toolkit."
-                                data-linkedin="https://linkedin.com/in/adityajoshi">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Intern, Project"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
                     
                     <!-- Alumni Card 8 -->
-                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="legends">
+                    <div class="achievement-card bg-white rounded-lg shadow-md p-6 transition" data-categories="Hackathon">
                         <div class="flex items-start mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://via.placeholder.com/48" alt="Profile" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h3 class="font-semibold">Meera Krishnan</h3>
-                                <p class="text-sm text-gray-600">Batch of 2018</p>
+                                <h3 class="font-semibold">-- NAME --</h3>
+                                <p class="text-sm text-gray-600">Batch of [Year]</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="google-yellow text-white text-xs px-2 py-1 rounded">Mentor</span>
+                            <span class="google-red text-white text-xs px-2 py-1 rounded">Hackathon</span>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Mentored 100+ students over 4 years, many now at top tech companies.</p>
+                        <p class="text-gray-700 text-sm mb-4">Write a description about their Achievement</p>
+                        <!-- here write about the achivements you want to show in details modal -->
                         <button class="view-details-btn w-full google-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition"
-                                data-name="Meera Krishnan"
-                                data-batch="2018"
-                                data-achievements="Mentor"
-                                data-details="Has mentored 100+ students through GDG VJIT's mentorship program over 4 years. 30+ of her mentees are now at FAANG companies. Known for her personalized guidance and career roadmap sessions. Currently a Senior Engineer at Google while continuing to mentor students."
-                                data-linkedin="https://linkedin.com/in/meerakrishnan">
+                                data-name="-- NAME --"
+                                data-batch="[Year]"
+                                data-achievements="Hackathon"
+                                data-details="Write a description about their Achievement"
+                                data-linkedin="#">
                             View Details
                         </button>
                     </div>
@@ -241,7 +246,7 @@
                     Join GDG VJIT today and start your journey towards becoming our next Wall of Fame honoree!
                 </p>
                 <button class="google-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition">
-                    Join Our Community
+                    Join Our Hackathon
                 </button>
             </section>
         </div>
