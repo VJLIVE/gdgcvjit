@@ -3,7 +3,7 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0; /* Reduced padding for mobile */
+    padding: 0.5rem 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -29,29 +29,44 @@ header.fade-in {
 }
 
 .gdg-logo {
-    height: 40px; /* Base size for mobile */
+    height: 40px;
     width: auto;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Reduced gap for smaller screens */
+    gap: 1rem;
 }
 
 .nav-item {
     text-decoration: none;
     color: black;
-    font-size: 1rem; /* Slightly smaller base size */
+    font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
 }
 
+.nav-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: blue;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
 .nav-item:hover {
-    color: blue;
-    text-decoration: underline blue;
-    text-underline-offset: 4px;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.nav-item:hover::after {
+    width: 100%;
 }
 
 .nav-item.active {
@@ -72,7 +87,7 @@ header.fade-in {
     display: block;
     width: 25px;
     height: 3px;
-    background: #333; /* Darker for white background */
+    background: #333;
     margin: 5px 0;
     transition: all 0.3s ease;
 }
@@ -121,10 +136,10 @@ header.fade-in {
 
 @media (min-width: 768px) {
     .gdg-logo {
-        height: 50px; /* Larger for desktop */
+        height: 50px;
     }
     .nav-links {
-        gap: 2rem; /* Larger gap for desktop */
+        gap: 2rem;
     }
     .nav-item {
         font-size: 1.1rem;
