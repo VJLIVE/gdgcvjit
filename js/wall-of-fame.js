@@ -146,10 +146,10 @@ viewDetailsBtns.forEach(btn => {
         
         achievements.forEach(achievement => {
             let badgeClass = 'google-blue';
-            if (achievement.includes('Speaker') || achievement.includes('Talks')) {
-                badgeClass = 'google-yellow';
-            } else if (achievement.includes('Hackathon') || achievement.includes('Mentor') || achievement.includes('Founding')) {
+            if (achievement.includes('Speaker') || achievement.includes('Keynote')) {
                 badgeClass = 'google-red';
+            } else if (achievement.includes('Community') || achievement.includes('Mentor') || achievement.includes('Founding')) {
+                badgeClass = 'google-yellow';
             } else if (achievement.includes('Project') || achievement.includes('Hackathon')) {
                 badgeClass = 'google-green';
             }
