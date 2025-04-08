@@ -103,6 +103,7 @@ function startMemoryGame() {
     document.getElementById('typing-game-container').classList.add('hidden');
     document.getElementById('quiz-game-container').classList.add('hidden');
     resetMemoryGame();
+    document.querySelector('#memory-game-container').scrollIntoView({ behavior: 'smooth' });
 }
 
 function resetMemoryGame() {
@@ -117,10 +118,10 @@ function resetMemoryGame() {
     
     memoryGameState.forEach((icon, index) => {
         const card = document.createElement('div');
-        card.className = 'card h-24 bg-gray-100 rounded-lg flex items-center justify-center cursor-pointer';
+        card.className = 'card h-16 md:h-24 bg-gray-100 rounded-lg flex items-center justify-center cursor-pointer';
         card.dataset.index = index;
         card.innerHTML = `
-            <div class="card-front w-full h-full flex items-center justify-center">
+            <div class="card-front  w-full h-full flex items-center justify-center">
                 <i class="fas fa-question text-3xl text-gray-500"></i>
             </div>
             <div class="card-back w-full h-full flex items-center justify-center hidden">
@@ -198,6 +199,7 @@ function startTypingGame() {
     document.getElementById('memory-game-container').classList.add('hidden');
     document.getElementById('quiz-game-container').classList.add('hidden');
     resetTypingGame();
+    document.querySelector('#typing-game-container').scrollIntoView({ behavior: 'smooth' });
 }
 
 function resetTypingGame() {
@@ -288,6 +290,7 @@ function startQuizGame() {
     quizScore = 0;
     document.getElementById('quiz-score').textContent = quizScore;
     showQuizQuestion();
+    document.querySelector('#quiz-game-container').scrollIntoView({ behavior: 'smooth' });
 }
 
 function showQuizQuestion() {
