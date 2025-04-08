@@ -1,4 +1,3 @@
-/* Existing Styles */
 header {
     font-family: Arial, Helvetica, sans-serif !important;
     background-color: rgba(255, 255, 255, 0.95);
@@ -30,22 +29,23 @@ header.fade-in {
 }
 
 .gdg-logo {
-    height: 40px; /* Base size for mobile */
+    height: 40px;
     width: auto;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Reduced gap for smaller screens */
+    gap: 1rem;
 }
 
 .nav-item {
     text-decoration: none;
+    color: black;
     font-size: 1rem;
     font-weight: 500;
-    position: relative; /* Added for positioning the underline */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and movement */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
 }
 
@@ -55,14 +55,14 @@ header.fade-in {
     width: 0;
     height: 2px;
     background-color: blue;
-    bottom: -5px; /* Space between text and underline */
+    bottom: -5px;
     left: 0;
     transition: width 0.3s ease;
 }
 
 .nav-item:hover {
     text-decoration: none;
-    transform: translateY(-3px); /* Move the item upwards slightly on hover */
+    transform: translateY(-3px);
 }
 
 .nav-item:hover::after {
@@ -70,32 +70,11 @@ header.fade-in {
 }
 
 .nav-item.active {
+    color: blue;
     text-decoration: underline;
     text-underline-offset: 4px;
 }
 
-/* Color for the individual nav-items */
-.nav-item.red {
-    color: red;
-}
-
-.nav-item.blue {
-    color: blue;
-}
-
-.nav-item.green {
-    color: green;
-}
-
-.nav-item.yellow {
-    color: yellow;
-}
-
-.nav-item.orange {
-    color: orange;
-}
-
-/* Hamburger Icon Styles */
 .hamburger {
     display: none;
     background: none;
@@ -157,10 +136,10 @@ header.fade-in {
 
 @media (min-width: 768px) {
     .gdg-logo {
-        height: 50px; /* Larger for desktop */
+        height: 50px;
     }
     .nav-links {
-        gap: 2rem; /* Larger gap for desktop */
+        gap: 2rem;
     }
     .nav-item {
         font-size: 1.1rem;
