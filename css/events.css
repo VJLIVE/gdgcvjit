@@ -126,8 +126,32 @@ body {
 
 /* Existing styles remain unchanged */
 
-
+/*New Styles by VJ*/
 #carousel-dots span.bg-blue-600 {
-    background-color: #3b82f6; /* Ensure blue is prominent */
-    transform: scale(1.2); /* Optional: Slightly enlarge active dot */
+    background-color: #3b82f6;
+    transform: scale(1.2);
+}
+
+#modal-learn, #modal-prerequisites {
+    text-align: left;
+}
+
+@media (max-width: 640px) {
+    #modal-learn, #modal-prerequisites {
+        text-align: left !important;
+    }
+    #modal-description {
+        text-align: left;
+    }
+    #photo-carousel {
+        position: relative;
+        max-width: 100%;
+        height: 150px;
+    }
+    #modal-preqhead{
+        text-align: left;
+    }
+    #watch-reel-btn{
+        margin-top: 20px;
+    }
 }
