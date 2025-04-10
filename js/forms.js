@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 🔐 Replace these with your actual keys and IDs
+    const EMAILJS_PUBLIC_KEY = "xn2WUjT8XRPMfaxAc";
+    const EMAILJS_JOIN_SERVICE_ID = "service_z0j3wlg";
+    const EMAILJS_JOIN_TEMPLATE_ID = "template_j0h68d7";
+    const EMAILJS_CONTACT_SERVICE_ID = "service_7eyqay5";
+    const EMAILJS_CONTACT_TEMPLATE_ID = "template_mlf8u5i";
+
     // Initialize EmailJS
-    emailjs.init(window.env.EMAILJS_PUBLIC_KEY);
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
     const showCustomPrompt = (title, message, isError = false) => {
         const prompt = document.getElementById('custom-prompt');
@@ -45,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             emailjs.send(
-                window.env.EMAILJS_JOIN_SERVICE_ID,
-                window.env.EMAILJS_JOIN_TEMPLATE_ID,
+                EMAILJS_JOIN_SERVICE_ID,
+                EMAILJS_JOIN_TEMPLATE_ID,
                 formData
             ).then(() => {
                 showCustomPrompt('Success', 'Membership application submitted successfully!');
@@ -79,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             emailjs.send(
-                window.env.EMAILJS_CONTACT_SERVICE_ID,
-                window.env.EMAILJS_CONTACT_TEMPLATE_ID,
+                EMAILJS_CONTACT_SERVICE_ID,
+                EMAILJS_CONTACT_TEMPLATE_ID,
                 formData
             ).then(() => {
                 showCustomPrompt('Success', 'Message sent successfully!');
