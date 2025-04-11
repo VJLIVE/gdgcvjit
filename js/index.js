@@ -71,20 +71,24 @@ function initializeTypingEffect() {
 
     function type() {
         const currentText = texts[textIndex];
+
         if (isDeleting) {
             typingText.textContent = currentText.substring(0, charIndex--);
             if (charIndex < 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % texts.length;
-                typingSpeed = 100;
+                setTimeout(type, 2000); // Pause before typing new string
+                return;
             }
         } else {
             typingText.textContent = currentText.substring(0, charIndex++);
             if (charIndex > currentText.length) {
                 isDeleting = true;
-                typingSpeed = 100;
+                setTimeout(type, 3000); // Pause after typing full string
+                return;
             }
         }
+
         setTimeout(type, typingSpeed);
     }
 
@@ -184,31 +188,35 @@ function initializeParticleNetwork() {
         canvas.height = heroRect.height;
         canvas.style.top = `${heroRect.top + window.scrollY}px`;
         canvas.style.left = `${heroRect.left}px`;
-
+    
         if (canvas.width <= 0 || canvas.height <= 0) {
             console.warn('Canvas has invalid dimensions:', canvas.width, canvas.height);
             return;
         }
-
+    
         const area = canvas.width * canvas.height;
-        const baseDensity = 0.0001;
+    
+        let baseDensity;
+        if (window.innerWidth < 768) {
+            baseDensity = 0.00005;
+        } else {
+            baseDensity = 0.0001;
+        }
+    
         let maxParticles = Math.floor(area * baseDensity);
-        maxParticles = Math.max(20, Math.min(150, maxParticles));
-
-        console.log(`Canvas size: ${canvas.width}x${canvas.height}, Area: ${area}, Max Particles: ${maxParticles}`);
-
-        // Adjust particle count and reposition existing particles
+        maxParticles = Math.max(15, Math.min(120, maxParticles));
+    
+        // Adjust particle count
         while (particles.length < maxParticles) {
-            const particle = new Particle();
-            particles.push(particle);
+            particles.push(new Particle());
         }
         while (particles.length > maxParticles) {
             particles.pop();
         }
         particles.forEach(particle => particle.resetPosition());
-
-        console.log(`Current particle count: ${particles.length}`);
-    }
+    
+        console.log(`Canvas size: ${canvas.width}x${canvas.height}, Area: ${area}, Max Particles: ${particles.length}`);
+    }    
 
     // Initial resize (only on load or resize)
     resizeCanvas();
