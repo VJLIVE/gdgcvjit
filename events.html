@@ -437,15 +437,14 @@
 
     <!-- Event Modal -->
     <div id="event-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
-        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 sm:p-0">
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"></span>
-            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+            <div class="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-2xl sm:w-full">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
-                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <div class="mt-3 sm:mt-0 sm:ml-4 w-full">
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Event Title</h3>
@@ -466,34 +465,33 @@
                                         <p class="text-sm text-gray-500" id="modal-location">Location</p>
                                     </div>
                                 </div>
-
+    
                                 <!-- Photo Carousel -->
                                 <div class="mb-4">
                                     <h4 class="font-medium text-gray-900 mb-2">Event Photos</h4>
-                                    <div class="relative">
-                                        <div id="photo-carousel" class="overflow-hidden rounded-lg">
+                                    <div class="relative overflow-hidden">
+                                        <div id="photo-carousel" class="overflow-hidden rounded-lg touch-pan-x">
                                             <div id="carousel-images" class="flex transition-transform duration-300"></div>
                                         </div>
                                         <button id="carousel-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-left"></i></button>
                                         <button id="carousel-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-right"></i></button>
                                     </div>
-                                </div>
-                                    <!-- Add pagination dots container -->
+                                    <!-- Pagination dots container -->
                                     <div id="carousel-dots" class="flex justify-center mt-2 space-x-2"></div>
                                 </div>
-
+    
                                 <!-- Watch Reel Button -->
                                 <div class="mb-4">
                                     <a id="watch-reel-btn" href="#" target="_blank" class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium transition-colors hover:from-blue-700 hover:to-blue-600">
                                         <i class="fab fa-instagram mr-2"></i> Watch Reel
                                     </a>
                                 </div>
-
+    
                                 <div class="bg-gray-50 p-4 rounded-lg mb-4">
                                     <h4 class="font-medium text-gray-900 mb-2">About this event</h4>
                                     <p class="text-gray-600" id="modal-description">Event description will be populated here.</p>
                                 </div>
-                                
+    
                                 <div class="grid grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <h5 class="text-sm font-medium text-gray-500">Members attended</h5>
@@ -512,24 +510,24 @@
                                         <p class="text-gray-900" id="modal-duration">Duration</p>
                                     </div>
                                 </div>
-                                
+    
                                 <div class="mb-4">
                                     <h4 class="font-medium text-gray-900 mb-2">What you'll learn</h4>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-learn">
+                                    <ul class="list-disc list-outside text-gray-600 space-y-1 pl-5" id="modal-learn">
                                         <li>Item 1</li>
                                         <li>Item 2</li>
                                         <li>Item 3</li>
                                     </ul>
                                 </div>
-                                
+    
                                 <div class="mb-4">
                                     <h4 class="font-medium text-gray-900 mb-2">Prerequisites</h4>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-prerequisites">
+                                    <ul class="list-disc list-outside text-gray-600 space-y-1 pl-5" id="modal-prerequisites">
                                         <li>Item 1</li>
                                         <li>Item 2</li>
                                     </ul>
-                                </div>                                
-                                
+                                </div>
+    
                                 <!-- Registration Info Section -->
                                 <div id="registration-info" class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
                                     <div class="flex">
@@ -539,19 +537,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+    
                                 <!-- Register Button Section -->
-                                <div id="registration-btn" class="flex items-center justify-between mb-4">
-                                    <a href="https://example.com/register" id="register-link" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-center" target="_blank">Register Now</a>
+                                <div id="registration-btn" class="mb-4">
+                                    <a href="https://example.com/register" id="register-link" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium" target="_blank">Register Now</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-8">
