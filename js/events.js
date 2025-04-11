@@ -43,8 +43,7 @@ function initializeMobileMenu() {
         navLinks.classList.toggle('active');
       });
     }
-  }
-  
+}
 
 // Smooth scrolling for anchor links
 function initializeSmoothScrolling() {
@@ -112,13 +111,30 @@ function attachDetailsButtonListeners() {
     const nextBtn = document.getElementById('carousel-next');
     const photosSection = document.querySelector('#photo-carousel') ? document.querySelector('#photo-carousel').parentElement : null;
     const carouselDots = document.getElementById('carousel-dots');
+    const photoCarousel = document.getElementById('photo-carousel');
 
     let currentIndex = 0;
+    let photos = [];
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     eventDetailBtns.forEach(btn => {
         btn.removeEventListener('click', handleDetailsClick);
         btn.addEventListener('click', handleDetailsClick);
     });
+
+    function updateCarousel() {
+        if (photos.length > 0) {
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+            const dots = carouselDots.querySelectorAll('span');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-blue-600', index === currentIndex);
+                dot.classList.toggle('bg-gray-300', index !== currentIndex);
+            });
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === photos.length - 1;
+        }
+    }
 
     function handleDetailsClick(e) {
         const currentEventCard = e.target.closest('.event-card');
@@ -134,7 +150,7 @@ function attachDetailsButtonListeners() {
         const fullDescription = currentEventCard.dataset.fullDescription;
         const seats = currentEventCard.querySelector('.fa-users + span').textContent;
         const type = currentEventCard.dataset.type;
-        const photos = JSON.parse(currentEventCard.dataset.photos || '[]');
+        photos = JSON.parse(currentEventCard.dataset.photos || '[]');
         const reelUrl = currentEventCard.dataset.reel || '#';
         const learnItems = JSON.parse(currentEventCard.dataset.learn || '[]');
         const prerequisites = JSON.parse(currentEventCard.dataset.prerequisites || '[]');
@@ -187,8 +203,7 @@ function attachDetailsButtonListeners() {
                     const img = document.createElement('img');
                     img.src = photo;
                     img.alt = `${title} event photo`;
-                    img.style.width = '100%';
-                    img.style.height = 'auto';
+                    img.classList.add('w-full','md:h-[10vh]', 'flex-shrink-0');
                     carouselImages.appendChild(img);
                 });
 
@@ -205,10 +220,40 @@ function attachDetailsButtonListeners() {
                 photosSection.classList.remove('hidden');
                 prevBtn.disabled = photos.length <= 1;
                 nextBtn.disabled = photos.length <= 1;
+
+                // Swipe handling
+                photoCarousel.removeEventListener('touchstart', handleTouchStart);
+                photoCarousel.removeEventListener('touchmove', handleTouchMove);
+                photoCarousel.removeEventListener('touchend', handleTouchEnd);
+                photoCarousel.addEventListener('touchstart', handleTouchStart);
+                photoCarousel.addEventListener('touchmove', handleTouchMove);
+                photoCarousel.addEventListener('touchend', handleTouchEnd);
             } else {
                 photosSection.classList.add('hidden');
                 prevBtn.disabled = true;
                 nextBtn.disabled = true;
+            }
+        }
+
+        function handleTouchStart(e) {
+            touchStartX = e.touches[0].clientX;
+        }
+
+        function handleTouchMove(e) {
+            touchEndX = e.touches[0].clientX;
+        }
+
+        function handleTouchEnd() {
+            const swipeDistance = touchStartX - touchEndX;
+            const minSwipeDistance = 50; // Minimum distance to consider it a swipe
+
+            if (Math.abs(swipeDistance) > minSwipeDistance) {
+                if (swipeDistance > 0 && currentIndex < photos.length - 1) {
+                    currentIndex++; // Swipe left
+                } else if (swipeDistance < 0 && currentIndex > 0) {
+                    currentIndex--; // Swipe right
+                }
+                updateCarousel();
             }
         }
 
@@ -273,24 +318,6 @@ function attachDetailsButtonListeners() {
         }
     }
 
-    function updateCarousel() {
-        if (!carouselImages || !carouselImages.children.length) return;
-
-        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === carouselImages.children.length - 1;
-
-        const dots = carouselDots.querySelectorAll('span');
-        dots.forEach((dot, index) => {
-            dot.classList.remove('bg-blue-600');
-            dot.classList.add('bg-gray-300');
-            if (index === currentIndex) {
-                dot.classList.remove('bg-gray-300');
-                dot.classList.add('bg-blue-600');
-            }
-        });
-    }
-
     prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
@@ -299,7 +326,7 @@ function attachDetailsButtonListeners() {
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < carouselImages.children.length - 1) {
+        if (currentIndex < photos.length - 1) {
             currentIndex++;
             updateCarousel();
         }
@@ -367,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (sortValue === 'date-asc') return dateA - dateB;
                 if (sortValue === 'date-desc') return dateB - dateA;
                 if (sortValue === 'name-asc') return nameA.localeCompare(nameB);
-                if (sortValue === 'name-desc') return nameB.localeCompare(nameA);
+                if (sortValue === 'name-desc') return nameB.localeCompare(nameB);
             });
             displayEvents(sortedCards);
         });
