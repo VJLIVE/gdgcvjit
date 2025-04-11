@@ -41,11 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Close mobile menu when clicking a link
             navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
+                const href = item.getAttribute('href');
+                if (href === currentPage) {
+                    item.classList.add('active');
+                    item.style.color = 'black';
+                    item.style.textDecoration = 'none';
+                }
+            });            
         })
         .catch(error => console.error('Error loading header:', error));
 });
