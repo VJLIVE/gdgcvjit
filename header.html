@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GDG Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="icon" type="image/png" href="./assets/favicon.ico">
 </head>
 <body>
     <header class="header fixed top-0 left-0 w-full z-50">
-        <nav class="navbar">
+        <nav class="navbar" role="navigation">
+            <button class="hamburger" aria-label="Toggle menu" role="button">
+                <i class="fas fa-bars hamburger-icon"></i>
+                <i class="fas fa-times close-icon hidden"></i>
+            </button>
             <div class="logo">
                 <a href="index.html">
                     <img src="assets/GDG_Logo.png" alt="GDG Logo" class="gdg-logo">
                 </a>
             </div>
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="events.html" class="nav-item">Events</a>
                 <a href="projectsud.html" class="nav-item">Project</a>
                 <a href="team.html" class="nav-item">Team</a>
-                <a href="wall-of-fame-ud.html" class="nav-item">Wall-Of-Fame</a>
+                <a href="wall-of-fame-ud.html" class="nav-item">Wall of Fame</a>
             </div>
         </nav>
+        <div class="menu-overlay"></div>
     </header>
+    <script defer src="js/header.js"></script>
 </body>
 </html>
