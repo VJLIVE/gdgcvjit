@@ -196,66 +196,137 @@ function attachDetailsButtonListeners() {
 
         // Photos and carousel handling
         if (carouselImages && photosSection) {
-            carouselImages.innerHTML = '';
-            carouselDots.innerHTML = '';
-            if (isPastEvent && photos.length > 0) {
-                photos.forEach(photo => {
-                    const img = document.createElement('img');
-                    img.src = photo;
-                    img.alt = `${title} event photo`;
-                    img.classList.add('w-full','md:h-[10vh]', 'flex-shrink-0');
-                    carouselImages.appendChild(img);
-                });
-
-                photos.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'cursor-pointer', 'mx-1', 'transition-colors', 'duration-300');
-                    dot.addEventListener('click', () => {
-                        currentIndex = index;
-                        updateCarousel();
-                    });
-                    carouselDots.appendChild(dot);
-                });
-
-                photosSection.classList.remove('hidden');
-                prevBtn.disabled = photos.length <= 1;
-                nextBtn.disabled = photos.length <= 1;
-
-                // Swipe handling
-                photoCarousel.removeEventListener('touchstart', handleTouchStart);
-                photoCarousel.removeEventListener('touchmove', handleTouchMove);
-                photoCarousel.removeEventListener('touchend', handleTouchEnd);
-                photoCarousel.addEventListener('touchstart', handleTouchStart);
-                photoCarousel.addEventListener('touchmove', handleTouchMove);
-                photoCarousel.addEventListener('touchend', handleTouchEnd);
-            } else {
-                photosSection.classList.add('hidden');
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-            }
-        }
-
-        function handleTouchStart(e) {
-            touchStartX = e.touches[0].clientX;
-        }
-
-        function handleTouchMove(e) {
-            touchEndX = e.touches[0].clientX;
-        }
-
-        function handleTouchEnd() {
-            const swipeDistance = touchStartX - touchEndX;
-            const minSwipeDistance = 50; // Minimum distance to consider it a swipe
-
-            if (Math.abs(swipeDistance) > minSwipeDistance) {
-                if (swipeDistance > 0 && currentIndex < photos.length - 1) {
-                    currentIndex++; // Swipe left
-                } else if (swipeDistance < 0 && currentIndex > 0) {
-                    currentIndex--; // Swipe right
+    carouselImages.innerHTML = '';
+    carouselDots.innerHTML = '';
+    if (isPastEvent && photos.length > 0) {
+        photos.forEach((photo, index) => {
+            const img = document.createElement('img');
+            img.src = photo;
+            img.alt = `${title} event photo`;
+            img.classList.add('w-full', 'flex-shrink-0', 'object-cover', 'cursor-pointer');
+            // Add tap handler for full-screen
+            img.dataset.index = index; // Store index for reference
+            img.addEventListener('click', (e) => {
+                // Only trigger full-screen on quick taps to avoid swipe conflicts
+                if (Date.now() - touchStartTime < 300 && !wasSwiped) {
+                    openFullScreen(photo);
                 }
+            });
+            carouselImages.appendChild(img);
+        });
+
+        photos.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'cursor-pointer', 'mx-1', 'transition-colors', 'duration-300');
+            dot.addEventListener('click', () => {
+                currentIndex = index;
                 updateCarousel();
-            }
+            });
+            carouselDots.appendChild(dot);
+        });
+
+        photosSection.classList.remove('hidden');
+        prevBtn.disabled = photos.length <= 1;
+        nextBtn.disabled = photos.length <= 1;
+
+        // Swipe event listeners
+        photoCarousel.removeEventListener('touchstart', handleTouchStart);
+        photoCarousel.removeEventListener('touchmove', handleTouchMove);
+        photoCarousel.removeEventListener('touchend', handleTouchEnd);
+        photoCarousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+        photoCarousel.addEventListener('touchmove', handleTouchMove, { passive: true });
+        photoCarousel.addEventListener('touchend', handleTouchEnd);
+    } else {
+        photosSection.classList.add('hidden');
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+    }
+}
+
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartTime = 0;
+let currentIndex = 0;
+let isSwiping = false;
+let wasSwiped = false;
+
+function handleTouchStart(e) {
+    if (isSwiping) return;
+    isSwiping = true;
+    wasSwiped = false;
+    touchStartX = e.touches[0].clientX;
+    touchStartTime = Date.now();
+}
+
+function handleTouchMove(e) {
+    if (!isSwiping) return;
+    touchEndX = e.touches[0].clientX;
+}
+
+function handleTouchEnd() {
+    if (!isSwiping) return;
+    isSwiping = false;
+
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(swipeDistance) >= minSwipeDistance) {
+        wasSwiped = true; // Mark as swipe to block full-screen
+        let newIndex = currentIndex;
+        if (swipeDistance > 0 && currentIndex < photos.length - 1) {
+            newIndex = currentIndex + 1;
+        } else if (swipeDistance < 0 && currentIndex > 0) {
+            newIndex = currentIndex - 1;
         }
+        if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateCarousel();
+        }
+    }
+}
+
+function updateCarousel() {
+    const offset = -currentIndex * 100;
+    carouselImages.style.transform = `translateX(${offset}%)`;
+    const dots = document.querySelectorAll('#carousel-dots span');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('bg-blue-600', index === currentIndex);
+        dot.classList.toggle('bg-gray-300', index !== currentIndex);
+        dot.classList.toggle('scale-125', index === currentIndex);
+    });
+}
+
+// Full-screen modal functionality
+function openFullScreen(imageSrc) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('fullscreen-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'fullscreen-modal';
+        modal.classList.add('fixed', 'inset-0', 'bg-black', 'bg-opacity-80', 'flex', 'items-center', 'justify-center', 'z-50', 'hidden');
+        document.body.appendChild(modal);
+    }
+
+    // Set modal content
+    modal.innerHTML = `
+        <div class="relative max-w-full max-h-full">
+            <img src="${imageSrc}" alt="Full-screen event photo" class="max-w-full max-h-screen object-contain">
+            <button id="close-fullscreen" class="absolute top-4 right-4 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition-colors">
+                &times;
+            </button>
+        </div>
+    `;
+
+    // Show modal
+    modal.classList.remove('hidden');
+
+    // Close on click outside image or close button
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.id === 'close-fullscreen') {
+            modal.classList.add('hidden');
+        }
+    });
+}
 
         currentIndex = 0;
         updateCarousel();

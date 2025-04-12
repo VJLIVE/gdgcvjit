@@ -108,12 +108,22 @@ body {
     max-width: 100%;
     height: 300px; /* Consider using min-height or a variable for flexibility */
 }
-
+@media (max-width: 640px) {
+    #photo-carousel{
+        height: 250px;
+    }
+}
+/* Default height for larger screens */
 #carousel-images img {
-    width: 100%;
-    height: 300px; /* Match container height */
-    object-fit: cover;
-    flex-shrink: 0;
+    height: 300px; /* or your preferred height for desktop */
+}
+
+/* Mobile view height */
+@media (max-width: 640px) {
+    #carousel-images img {
+        height: 150px;
+        
+    }
 }
 
 #carousel-prev, #carousel-next {
