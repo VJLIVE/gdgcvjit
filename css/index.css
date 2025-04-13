@@ -250,3 +250,16 @@ body {
     background-color: #3b82f6; /* Ensure blue is prominent */
     transform: scale(1.2); /* Optional: Slightly enlarge active dot */
 }
+
+.card-container {
+    display: none; /* Hidden by default for mobile and tablet */
+    margin-top: 5rem; /* Matches Tailwind's mt-20 */
+}
+
+@media (min-width: 1024px) {
+    .card-container {
+        display: grid; /* Show as grid on laptops and larger */
+        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+        gap: 2rem; /* Matches Tailwind's gap-8 (2rem) */
+    }
+}
