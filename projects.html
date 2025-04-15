@@ -12,7 +12,44 @@
 </head>
 <body class="bg-gray-50 font-sans">
 
-    <div id="header-placeholder"></div>
+    <header class="header fade-in fixed top-0 left-0 right-0 z-30 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          
+          <!-- Logo -->
+          <a href="/" class="flex items-center space-x-2">
+            <img class="w-1/3" src="assets/gdg_logo.png" alt="GDG" class="w-10 h-10" />
+          </a>
+    
+          <!-- Desktop Nav -->
+          <ul class="nav-links hidden md:flex items-center space-x-6 font-medium text-gray-700">
+            <li class="nav-item"><a href="/" class="hover:text-[#5f6FFF]">Home</a></li>
+            <li class="nav-item"><a href="/events.html" class="hover:text-[#5f6FFF]">Events</a></li>
+            <li class="nav-item"><a href="/projectsud.html" class="hover:text-[#5f6FFF]">Speakers</a></li>
+            <li class="nav-item"><a href="/team.html" class="hover:text-[#5f6FFF]">Community</a></li>
+            <li class="nav-item"><a href="/wall-of-fame-ud.html" class="hover:text-[#5f6FFF]">Contact</a></li>
+          </ul>
+    
+          <!-- Hamburger (mobile only) -->
+          <div class="hamburger md:hidden flex flex-col gap-1 cursor-pointer z-40">
+            <span class="block w-6 h-0.5 bg-black"></span>
+            <span class="block w-6 h-0.5 bg-black"></span>
+            <span class="block w-6 h-0.5 bg-black"></span>
+          </div>
+        </nav>
+    
+        <!-- Overlay -->
+        <div class="menu-overlay fixed inset-0 bg-black bg-opacity-50 hidden z-20"></div>
+    
+        <!-- Mobile Nav Menu -->
+        <ul class="nav-links-mobile fixed top-0 right-0 w-2/3 h-full bg-white flex-col items-center justify-center gap-6 font-semibold text-lg hidden md:hidden z-50 pt-24 px-6">
+          <li class="nav-item"><a href="/" class="block px-4 py-2 hover:text-[#5f6FFF]">Home</a></li>
+          <li class="nav-item"><a href="/events" class="block px-4 py-2 hover:text-[#5f6FFF]">Events</a></li>
+          <li class="nav-item"><a href="/speakers" class="block px-4 py-2 hover:text-[#5f6FFF]">Speakers</a></li>
+          <li class="nav-item"><a href="/community" class="block px-4 py-2 hover:text-[#5f6FFF]">Community</a></li>
+          <li class="nav-item"><a href="/contact" class="block px-4 py-2 hover:text-[#5f6FFF]">Contact</a></li>
+        </ul>
+      </header>
+    
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-blue-50 to-purple-50 py-16" style="padding-top: 120px;">

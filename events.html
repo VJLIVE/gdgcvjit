@@ -7,11 +7,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/events.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="/css/index.css">
+    
     <link rel="icon" type="image/png" href="./assets/favicon.ico">
 </head>
 <body class="bg-gray-50">
-    <div id="header-placeholder"></div>
+     <!-- NAVBAR -->
+  <header class="header fade-in fixed top-0 left-0 right-0 z-30 bg-white shadow-md">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <img src="assets/gdg_logo.png" alt="GDG" class="w-30 h-10" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-links hidden md:flex items-center space-x-6 font-medium text-gray-700">
+        <li class="nav-item"><a href="/" class="nav-link pb-1">Home</a></li>
+        <li class="nav-item"><a href="/events.html" class="nav-link pb-1">Events</a></li>
+        <li class="nav-item"><a href="/projectsud.html" class="nav-link pb-1">Projects</a></li>
+        <li class="nav-item"><a href="/team.html" class="nav-link pb-1">Team</a></li>
+        <li class="nav-item"><a href="/wall-of-fame-ud.html" class="nav-link pb-1">Wall of Fame</a></li>
+      </ul>
+      
+      
+
+      <!-- Hamburger (mobile only) -->
+      <div class="hamburger md:hidden flex flex-col gap-1 cursor-pointer z-40">
+        <span class="block w-6 h-0.5 bg-black"></span>
+        <span class="block w-6 h-0.5 bg-black"></span>
+        <span class="block w-6 h-0.5 bg-black"></span>
+      </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="menu-overlay fixed inset-0 bg-black bg-opacity-50 hidden z-20"></div>
+
+    <!-- Mobile Nav Menu -->
+    <ul class="nav-links-mobile fixed top-0 right-0 w-2/3 h-full bg-white flex-col items-center justify-center gap-6 font-semibold text-lg hidden md:hidden z-50 pt-24 px-6">
+      <li class="nav-item"><a href="/" class="block px-4 py-2 hover:text-[#5f6FFF]">Home</a></li>
+      <li class="nav-item"><a href="/events.html" class="block px-4 py-2 hover:text-[#5f6FFF]">Events</a></li>
+      <li class="nav-item"><a href="/projectsud.html" class="block px-4 py-2 hover:text-[#5f6FFF]">Projects</a></li>
+      <li class="nav-item"><a href="/team.html" class="block px-4 py-2 hover:text-[#5f6FFF]">Team</a></li>
+      <li class="nav-item"><a href="/wall-of-fame-ud.html" class="block px-4 py-2 hover:text-[#5f6FFF]">Wall of Fame</a></li>
+    </ul>
+  </header>
 
     <!-- Hero Section -->
     <div class="bg-[url('assets/hero-section.png')] bg-cover bg-center bg-no-repeat text-white" style="padding-top: 80px;">
@@ -628,5 +668,44 @@
     
     <script src="js/header.js" defer></script>
     <script src="js/events.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const hamburger = document.querySelector('.hamburger');
+          const navLinks = document.querySelector('.nav-links-mobile');
+          const menuOverlay = document.querySelector('.menu-overlay');
+          const header = document.querySelector('.header');
+    
+          if (!hamburger || !navLinks || !menuOverlay || !header) return;
+    
+          header.classList.add('fade-in');
+    
+          const toggleMenu = () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('hidden');
+            menuOverlay.classList.toggle('hidden');
+          };
+    
+          hamburger.addEventListener('click', toggleMenu);
+    
+          navLinks.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', toggleMenu);
+          });
+    
+          menuOverlay.addEventListener('click', toggleMenu);
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll(".nav-link");
+            const currentPath = window.location.pathname;
+        
+            links.forEach(link => {
+              const linkPath = new URL(link.href).pathname;
+        
+              if (linkPath === currentPath) {
+                link.classList.add("border-b-2", "border-[#5f6FFF]");
+              }
+            });
+          });
+        
+      </script>
 </body>
 </html>
