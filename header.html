@@ -1,36 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GDG Community</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="icon" type="image/png" href="./assets/favicon.ico">
 </head>
+
 <body>
-    <header class="header fixed top-0 left-0 w-full z-50">
-        <nav class="navbar" role="navigation">
-            <button class="hamburger" aria-label="Toggle menu" role="button">
-                <i class="fas fa-bars hamburger-icon"></i>
-                <i class="fas fa-times close-icon hidden"></i>
-            </button>
-            <div class="logo">
+    <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+
+            <!-- Logo -->
+            <div class="flex items-center">
                 <a href="index.html">
-                    <img src="assets/GDG_Logo.png" alt="GDG Logo" class="gdg-logo">
+                    <img src="./assets/GDG_Logo.png" alt="GDG VJIT Logo" class="h-10 w-auto">
                 </a>
             </div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-item">Home</a>
-                <a href="events.html" class="nav-item">Events</a>
-                <a href="projectsud.html" class="nav-item">Projects</a>
-                <a href="team.html" class="nav-item">Team</a>
-                <a href="wall-of-fame-ud.html" class="nav-item">Wall of Fame</a>
-            </div>
+            <!-- Hamburger Icon (Visible on Mobile) -->
+            <button id="hamburger-btn" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <!-- Nav Links (Visible on Desktop) -->
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li>
+                    <a href="index.html"
+                        class="relative text-gray-600 hover:text-blue-600 pb-1 transition-colors duration-300 group">
+                        Home
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="events.html"
+                        class="relative text-gray-600 hover:text-blue-600 pb-1 transition-colors duration-300 group">
+                        Events
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projectsud.html"
+                        class="relative text-gray-600 hover:text-blue-600 pb-1 transition-colors duration-300 group">
+                        Projects
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="team.html"
+                        class="relative text-gray-600 hover:text-blue-600 pb-1 transition-colors duration-300 group">
+                        Team
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="wall-of-fame-ud.html"
+                        class="relative text-gray-600 hover:text-blue-600 pb-1 transition-colors duration-300 group">
+                        Wall of Fame
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+            </ul>
         </nav>
-        <div class="menu-overlay"></div>
+        <!-- Mobile Sidebar -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-4/5 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
+            <div class="flex justify-between items-center p-4">
+                <!-- Logo in Sidebar -->
+                <div>
+                    <a href="index.html">
+                        <img src="./assets/GDG_Logo.png" alt="GDG VJIT Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                <!-- Close Button -->
+                <button id="close-btn" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div class="flex flex-col p-6 space-y-6">
+                <ul class="flex flex-col space-y-4">
+                    <li>
+                        <a href="index.html" class="text-gray-600 hover:text-blue-600 text-lg">Home</a>
+                    </li>
+                    <li>
+                        <a href="events.html" class="text-gray-600 hover:text-blue-600 text-lg">Events</a>
+                    </li>
+                    <li>
+                        <a href="projectsud.html" class="text-gray-600 hover:text-blue-600 text-lg">Projects</a>
+                    </li>
+                    <li>
+                        <a href="team.html" class="text-gray-600 hover:text-blue-600 text-lg">Team</a>
+                    </li>
+                    <li>
+                        <a href="wall-of-fame-ud.html" class="text-gray-600 hover:text-blue-600 text-lg">Wall of Fame</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Built by the GDG VJIT Team -->
+            <div class="text-center pt-8 pb-4 text-sm text-gray-600">
+                Built by the GDG VJIT Team | 2024–25 Edition
+            </div>
+            <!-- Social Media Icons -->
+            <div class="flex justify-center gap-6 pt-8 border-t border-gray-200">
+                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" aria-label="Twitter"
+                    class="text-gray-600 hover:text-blue-500 text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/YOUR_HANDLE" target="_blank" aria-label="Instagram"
+                    class="text-gray-600 hover:text-pink-500 text-xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank" aria-label="LinkedIn"
+                    class="text-gray-600 hover:text-blue-700 text-xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://youtube.com/YOUR_CHANNEL" target="_blank" aria-label="YouTube"
+                    class="text-gray-600 hover:text-red-600 text-xl">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <!-- Copyright Line -->
+            <div class="text-center text-sm text-gray-600 pb-6 mt-10">
+                © 2025 GDG VJIT. All rights reserved.
+            </div>
+        </div>
     </header>
     <script defer src="js/header.js"></script>
 </body>
+
 </html>
