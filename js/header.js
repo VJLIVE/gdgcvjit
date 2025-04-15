@@ -1,39 +1,56 @@
+// js/header.js
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const header = document.querySelector('.header');
+    // Load header.html into #header-container
+    fetch('./header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load header.html');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
 
-    // Check for missing elements
-    if (!hamburger || !navLinks || !menuOverlay || !header) {
-        return;
-    }
+            // Mobile menu toggle logic
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const closeBtn = document.getElementById('close-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-    // Fade in header
-    header.classList.add('fade-in');
+            // Debug logs to check if elements are found
+            console.log('Hamburger Button:', hamburgerBtn);
+            console.log('Close Button:', closeBtn);
+            console.log('Mobile Menu:', mobileMenu);
 
-    // Toggle menu
-    const toggleMenu = () => {
-        const isActive = hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-    };
+            if (hamburgerBtn && closeBtn && mobileMenu) {
+                // Open menu on hamburger click
+                hamburgerBtn.addEventListener('click', () => {
+                    console.log('Hamburger clicked');
+                    mobileMenu.classList.remove('translate-x-full');
+                });
 
-    hamburger.addEventListener('click', toggleMenu);
+                // Close menu on cross click
+                closeBtn.addEventListener('click', () => {
+                    console.log('Close button clicked');
+                    mobileMenu.classList.add('translate-x-full');
+                });
 
-    // Close menu on nav item click
-    navLinks.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            menuOverlay.classList.remove('active');
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        console.log('Nav link clicked:', link.textContent);
+                        mobileMenu.classList.add('translate-x-full');
+                    });
+                });
+            } else {
+                console.error('One or more menu elements not found:', {
+                    hamburgerBtn,
+                    closeBtn,
+                    mobileMenu
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error loading header:', error);
+            document.getElementById('header-container').innerHTML = '<p>Error loading header</p>';
         });
-    });
-
-    // Close menu on overlay click
-    menuOverlay.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        menuOverlay.classList.remove('active');
-    });
 });
