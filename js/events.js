@@ -175,7 +175,7 @@ function attachDetailsButtonListeners() {
         const prerequisites = JSON.parse(currentEventCard.dataset.prerequisites || '[]');
         const registrationUrl = currentEventCard.dataset.registrationUrl || '#';
         const eventDate = new Date(currentEventCard.dataset.date);
-        const isPastEvent = eventDate < new Date('2025-04-05');
+        const isPastEvent = eventDate < new Date();
 
         // Populate modal
         document.getElementById('modal-title').textContent = title;
