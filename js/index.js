@@ -353,6 +353,40 @@ function initializeCounters() {
     }
 }
 
+// Modal close functionality
+function initializeModal() {
+    const modal = document.getElementById('event-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalContent = modal ? modal.querySelector('.inline-block.align-bottom.bg-white.rounded-lg') : null;
+
+    // Close modal function
+    function closeEventModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close on outside click
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (!modalContent.contains(e.target)) {
+                closeEventModal();
+            }
+        });
+    }
+
+    // Close on close button click
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeEventModal);
+    }
+
+    // Close on back button (popstate)
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.modalOpen && modal) {
+            closeEventModal();
+        }
+    });
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize all index-specific features
@@ -362,4 +396,5 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeTypingEffect();
     initializeParticleNetwork();
     initializeCounters();
+    initializeModal();
 });
