@@ -45,9 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = {
                 full_name: joinForm.querySelector('input[name="full-name"]').value,
+                phone: joinForm.querySelector('input[name="phone"]').value,
                 email: joinForm.querySelector('input[name="email"]').value,
                 year: joinForm.querySelector('select[name="year"]').value,
-                branch: joinForm.querySelector('input[name="branch"]').value,
+                branch: joinForm.querySelector('select[name="branch"]').value,
                 interest: joinForm.querySelector('textarea[name="interest"]').value || 'Not specified'
             };
 
