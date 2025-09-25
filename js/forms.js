@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 🔐 Replace these with your actual keys and IDs
-    const EMAILJS_PUBLIC_KEY = "xn2WUjT8XRPMfaxAc";
-    const EMAILJS_JOIN_SERVICE_ID = "service_z0j3wlg";
-    const EMAILJS_JOIN_TEMPLATE_ID = "template_j0h68d7";
+    const EMAILJS_PUBLIC_KEY = "PYFT7B0YqhWlrQIuK"; //new
+    const EMAILJS_JOIN_SERVICE_ID = "service_l3zgt24"; //new
+    const EMAILJS_JOIN_TEMPLATE_ID = "template_cpxb9bb"; //new
     const EMAILJS_CONTACT_SERVICE_ID = "service_7eyqay5";
     const EMAILJS_CONTACT_TEMPLATE_ID = "template_mlf8u5i";
 
