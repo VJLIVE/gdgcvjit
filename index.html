@@ -402,56 +402,35 @@
                     </div>
                     <div class="bg-white p-10">
                         <h3 class="text-xl font-semibold text-gray-900 mb-6">Join Our Community</h3>
-                        <form id="join-form" class="space-y-4">
-                            <div>
-                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        
+                        <!-- Membership Closed Notice -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-8 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="bg-blue-100 rounded-full p-4">
+                                    <i class="fas fa-users text-blue-600 text-3xl"></i>
                                 </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                             </div>
-                            <div>
-                                <label for="year" class="block text-sm font-medium text-gray-700 mb-1">Year of Study</label>
-                                <select id="year" name="year" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="">Select Year</option>
-                                    <option value="1">1st Year</option>
-                                    <option value="2">2nd Year</option>
-                                    <option value="3">3rd Year</option>
-                                    <option value="4">4th Year</option>
-                                </select>
+                            <h4 class="text-xl font-bold text-blue-800 mb-3">Membership Applications Closed</h4>
+                            <p class="text-blue-700 mb-6 text-lg">
+                                Thank you for your interest in joining GDG VJIT! 
+                            </p>                            
+                            <!-- Call to Action Buttons -->
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                                    <a href="/events" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        View Our Events
+                                    </a>
+                                    <a href="https://www.instagram.com/gdgc_vjit" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-colors">
+                                        <i class="fab fa-instagram mr-2"></i>
+                                        Follow Us
+                                    </a>
+                                </div>
+                                <p class="text-sm text-blue-600 mt-4">
+                                    Stay connected with us on social media for updates about future opportunities!
+                                </p>
                             </div>
-                            <div>
-                                <label for="branch" class="block text-sm font-medium text-gray-700 mb-1">Branch</label>
-                                <select id="branch" name="branch" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="">Select Branch</option>
-                                    <option value="CSE">CSE</option>
-                                    <option value="CSE-DS">CSE-DS</option>
-                                    <option value="CSE-AIML">CSE-AIML</option>
-                                    <option value="AI">AI</option>
-                                    <option value="IT">IT</option>
-                                    <option value="AI-DS">AI-DS</option>
-                                    <option value="ECE">ECE</option>
-                                    <option value="EEE">EEE</option>
-                                    <option value="MECH">MECH</option>
-                                    <option value="CIVIL">CIVIL</option>
-                                    <option value="MBA">MBA</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Areas of Interest</label>
-                                <textarea id="interest" name="interest" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
-                            </div>
-                            <div class="pt-2">
-                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors glow-on-hover">
-                                    Submit Application
-                                </button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -872,39 +851,23 @@
                                 <a href="https://example.com/register" id="register-link" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors" target="_blank">Register Now</a>
                             </div>
 
-                            <!-- Registration Form (Hidden by default) -->
-                            <div id="registration-form" class="mt-6 hidden">
-                                <h4 class="font-medium text-gray-900 mb-4">Register for this Event</h4>
-                                <form id="event-registration-form">
-                                    <div class="mb-4">
-                                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                            <!-- Registration Status Message -->
+                            <div id="registration-closed" class="mt-6">
+                                <div class="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-lg p-6 text-center">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="bg-red-100 rounded-full p-3">
+                                            <i class="fas fa-calendar-times text-red-600 text-2xl"></i>
+                                        </div>
                                     </div>
-                                    <div class="mb-4">
-                                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                        <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    <h4 class="font-semibold text-red-800 mb-2 text-lg">Registration Closed</h4>
+                                    <p class="text-red-700 mb-4">
+                                        Thank you for your interest! Registration for events is currently closed for this tenure.
+                                    </p>
+                                    <div class="text-sm text-red-600">
+                                        <p class="mb-2">Stay tuned for upcoming events in the next semester!</p>
+                                        <p>Follow us on social media for the latest updates.</p>
                                     </div>
-                                    <div class="mb-4">
-                                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="college" class="block text-sm font-medium text-gray-700">College Name</label>
-                                        <input type="text" id="college" name="college" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="year" class="block text-sm font-medium text-gray-700">Year of Study</label>
-                                        <select id="year" name="year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                            <option value="">Select Year</option>
-                                            <option value="1">1st Year</option>
-                                            <option value="2">2nd Year</option>
-                                            <option value="3">3rd Year</option>
-                                            <option value="4">4th Year</option>
-                                        </select>
-                                    </div>
-                                    <input type="hidden" id="event-title" name="eventTitle">
-                                    <button type="submit" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">Submit Registration</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

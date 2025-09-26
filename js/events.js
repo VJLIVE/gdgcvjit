@@ -279,10 +279,10 @@ function attachDetailsButtonListeners() {
                 registerLink.classList.remove('bg-blue-600', 'hover:bg-blue-700');
                 registerLink.classList.add('bg-gray-400', 'cursor-not-allowed');
             } else {
-                registerLink.textContent = 'Register Now';
+                registerLink.textContent = 'Registration Closed';
                 registerLink.href = registrationUrl;
-                registerLink.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                registerLink.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                registerLink.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                registerLink.classList.add('bg-gray-400', 'cursor-not-allowed');
             }
 
             registerLink.addEventListener('click', (e) => {
@@ -291,9 +291,16 @@ function attachDetailsButtonListeners() {
                     const customAlert = document.createElement('div');
                     customAlert.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
                     customAlert.innerHTML = `
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
-                            <p class="text-lg text-gray-900 mb-4">Registrations open soon!</p>
-                            <button id="close-alert" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">OK</button>
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-md w-full">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="bg-red-100 rounded-full p-3">
+                                    <i class="fas fa-calendar-times text-red-600 text-2xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-800 mb-2">Registration Closed</h3>
+                            <p class="text-red-700 mb-4">Event registrations are currently closed for this tenure.</p>
+                            <p class="text-sm text-gray-600 mb-4">Stay tuned for upcoming events next semester!</p>
+                            <button id="close-alert" class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors">Understood</button>
                         </div>
                     `;
                     document.body.appendChild(customAlert);

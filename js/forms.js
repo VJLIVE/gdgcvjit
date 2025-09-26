@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // JOIN FORM
+    /*
     const joinForm = document.getElementById('join-form');
     if (joinForm) {
         const joinButton = joinForm.querySelector('button[type="submit"]');
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+        */
 
     // CONTACT FORM
     const contactForm = document.getElementById('contact-form');
