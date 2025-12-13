@@ -163,7 +163,7 @@ body {
 }
 
 .team-card:hover img {
-    transform: scale(1.1) translateY(50%) translateX(-50%);
+    transform: scale(1.1) translateY(-10%) translateX(-15%);
 }
 
 .team-card .social-links a {
