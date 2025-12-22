@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,10 @@
     <link rel="stylesheet" href="css/projectsud.css">
     <link rel="stylesheet" href="/css/index.css">
     <!-- Add this in the <head> section of your HTML -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="icon" type="image/png" href="./assets/favicon.ico">
-    <script src="js/header.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="icon" type="image/png" href="./assets/favicon.ico">
+        <script src="js/header.js" defer></script>
 </head>
-
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
     <div id="header-container"></div>
     <main class="flex-grow flex flex-col items-center justify-center px-4 text-center py-12">
@@ -21,79 +19,69 @@
             <div class="mb-12">
                 <!-- <img src="https://illustrations.popsy.co/amber/development.svg" alt="Under development illustration" class="w-64 mx-auto"> -->
             </div>
-
+            
             <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Projects Section Under Development
+                Wall of Fame Section Under Development
             </h1>
-
-            <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                We're working hard to bring you an organized collection of all GDG projects.
+            
+            <p class="text-xl text-gray-600 mb- max-w-3xl mx-auto">
+                The spotlight’s warming up! We're crafting a dazzling Wall of Fame to celebrate the rockstars of GDG VJIT, from epic internships to jaw-dropping projects!
             </p>
-
-            <div
-                class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-10 mt-10 animate-pulse rounded-md shadow-md max-w-2xl mx-auto">
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-10 mt-10 animate-pulse rounded-md shadow-md max-w-2xl mx-auto">
                 <p class="text-lg font-semibold">
-                    While we prepare this section, why not try some fun coding-related games?
+                  While we prepare this section, why not try some fun coding-related games?
                 </p>
             </div>
-
+              
+              
+              
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <!-- Memory Game Card -->
-
-                    <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition"
-                        onclick="startMemoryGame()">
-                        <div
-                            class="google-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-brain text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Memory Game</h3>
-                        <p class="text-gray-600">Test your memory with tech icons</p>
+                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startMemoryGame()">
+                    <div class="google-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-2xl"></i>
                     </div>
-                </a>
-
+                    <h3 class="text-xl font-semibold mb-2">Memory Game</h3>
+                    <p class="text-gray-600">Test your memory with tech icons</p>
+                </div>
+                
                 <!-- Typing Game Card -->
-                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition"
-                    onclick="startTypingGame()">
-                    <div
-                        class="google-red text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startTypingGame()">
+                    <div class="google-red text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-keyboard text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Typing Test</h3>
                     <p class="text-gray-600">How fast can you type code snippets?</p>
                 </div>
-
+                
                 <!-- Quiz Game Card -->
-                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition"
-                    onclick="startQuizGame()">
-                    <div
-                        class="google-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startQuizGame()">
+                    <div class="google-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-question text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Tech Quiz</h3>
                     <p class="text-gray-600">Test your tech knowledge</p>
                 </div>
             </div>
-
+            
             <!-- Game Containers (hidden by default) -->
             <div id="memory-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-semibold">Memory Game</h2>
                     <div class="flex items-center">
                         <span class="mr-4">Moves: <span id="moves">0</span></span>
-                        <button onclick="resetMemoryGame()"
-                            class="google-blue text-white px-4 py-2 rounded">Reset</button>
+                        <button onclick="resetMemoryGame()" class="google-blue text-white px-4 py-2 rounded">Reset</button>
                     </div>
                 </div>
-                <div id="memory-game" class="grid grid-cols-4 gap-5"></div>
+                <div id="memory-game" class="grid grid-cols-4 gap-4"></div>
             </div>
-
+            
             <div id="typing-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
                 <h2 class="text-2xl font-semibold mb-6">Typing Test</h2>
                 <div class="mb-6 p-4 bg-gray-100 rounded">
                     <p id="typing-text" class="text-lg mb-4">Loading code snippet...</p>
-                    <input type="text" id="typing-input"
-                        class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Start typing here...">
+                    <input type="text" id="typing-input" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Start typing here...">
                 </div>
                 <div class="flex justify-between">
                     <div>
@@ -103,24 +91,24 @@
                     <button onclick="resetTypingGame()" class="google-red text-white px-4 py-2 rounded">Reset</button>
                 </div>
             </div>
-
+            
             <div id="quiz-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
                 <h2 class="text-2xl font-semibold mb-6">Tech Quiz</h2>
                 <div id="quiz-question" class="text-lg mb-6">Loading question...</div>
                 <div id="quiz-options" class="grid grid-cols-1 gap-3 mb-6"></div>
                 <div class="flex justify-between items-center">
                     <span class="font-medium">Score: <span id="quiz-score">0</span></span>
-                    <button onclick="nextQuizQuestion()" class="google-green text-white px-4 py-2 rounded">Next
-                        Question</button>
+                    <button onclick="nextQuizQuestion()" class="google-green text-white px-4 py-2 rounded">Next Question</button>
                 </div>
             </div>
-
+            
             <div class="text-gray-600">
                 <p>Check back soon for our complete projects showcase!</p>
             </div>
         </div>
     </main>
 
+   
     <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -155,11 +143,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="/index.html" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="/events.html" class="text-gray-400 hover:text-white">Events</a></li>
-                        <li><a href="/projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
-                        <li><a href="/team.html" class="text-gray-400 hover:text-white">Team</a></li>
-                        <li><a href="/wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                        <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="/events" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="/projectsud" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="/team" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="/wall-of-fame-ud" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
                     </ul>
                 </div>
 
@@ -200,9 +188,9 @@
             </div>
         </div>
     </footer>
+                   
     <script src="js/header.js" defer></script>
     <script src="js/projectsud.js"></script>
-    
-</body>
 
+</body>
 </html>

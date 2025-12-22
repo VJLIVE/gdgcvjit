@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,18 @@
     <script src="js/header.js" defer></script>
     <link rel="icon" type="image/png" href="./assets/favicon.ico">
 </head>
+
 <body class="bg-gray-50">
     <div id="header-container"></div>
     <!-- Hero Section -->
-    <div class="bg-[url('assets/hero-section.png')] bg-cover bg-center bg-no-repeat text-white" style="padding-top: 80px;">
+    <div class="bg-[url('assets/hero-section.png')] bg-cover bg-center bg-no-repeat text-white"
+        style="padding-top: 80px;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">GDG VJIT Events</h1>
-          <p class="hidden sm:block text-xl md:text-2xl max-w-3xl mx-auto opacity-90">Join our workshops, hackathons, and tech talks to enhance your skills</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">GDG VJIT Events</h1>
+            <p class="hidden sm:block text-xl md:text-2xl max-w-3xl mx-auto opacity-90">Join our workshops, hackathons,
+                and tech talks to enhance your skills</p>
         </div>
-      </div>
+    </div>
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Filters and Search -->
@@ -30,18 +34,30 @@
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class="fas fa-search text-gray-400"></i>
                         </div>
-                        <input type="text" id="search-input" class="search-input block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Search events...">
+                        <input type="text" id="search-input"
+                            class="search-input block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Search events...">
                     </div>
                 </div>
-                
+
                 <div class="flex flex-wrap gap-2">
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50 active" data-filter="all">All Events</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50" data-filter="workshop">Workshops</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50" data-filter="hackathon">Hackathons</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50" data-filter="talk">Tech Talks</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50" data-filter="study-jam">Study Jams</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50 active"
+                        data-filter="all">All Events</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50"
+                        data-filter="workshop">Workshops</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50"
+                        data-filter="hackathon">Hackathons</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50"
+                        data-filter="talk">Tech Talks</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50"
+                        data-filter="study-jam">Study Jams</button>
                 </div>
-                
+
                 <!-- <div class="w-full md:w-auto">
                     <div class="relative">
                         <select id="sort-select" class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-lg">
@@ -54,7 +70,7 @@
                 </div> -->
             </div>
         </div>
-        
+
         <!-- Calendar View Toggle
         <div class="flex justify-end mb-6">
             <div class="inline-flex rounded-md shadow-sm" role="group">
@@ -68,202 +84,233 @@
         </div> -->
 
         <!-- Events List View -->
-        <div id="events-list-view">
+        <div id="upcoming-events" class="w-full max-w-sm   ">
             <!-- Upcoming Events -->
             <h2 class="text-2xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
-            <div id="upcoming-events" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Event Card (GDG TechSprint Hackathon 2026) -->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="hackathon"
+                data-date="2025-12-10"
+                data-full-description="GDG TechSprint Hackathon 2026 is an exciting innovation sprint organized by the Google Developer Group. The hackathon is open exclusively for VJIT students and follows a team format of 1 to 5 members. Registration is completely free. Top 3 student teams will receive exciting rewards, Google swags, and goodies."
+                data-photos='["assets/Event_images/techsprint_1.jpeg","assets/Event_images/techsprint_2.jpeg","assets/Event_images/techsprint_3.jpeg"]'
+                data-image-fit="contain">
 
-                <!-- Event Card (Upcoming) (Hackathon)
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="hackathon" 
-                data-date="2025-04-10" 
-                data-full-description="--------------------" 
-                data-photos='["https://via.placeholder.com/800x400?text=Hackathon+1", "https://via.placeholder.com/800x400?text=Hackathon+2", "https://via.placeholder.com/800x400?text=Hackathon+3"]' 
-                data-reel="#" 
-                data-learn='["---", "---", "---", "---", "---"]' 
-                data-prerequisites='["---", "---", "---"]'>
-                <div class="relative h-48 bg-gradient-to-r from-red-500 to-red-600">
-                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-code text-white text-5xl"></i>
-                    </div>
+                <!-- TOP SECTION WITH LOGO -->
+                <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <!-- LOGO IMAGE -->
+                    <img src="assets/Event_images/Techsprint_logo.jpeg" alt="GDG TechSprint Hackathon Logo"
+                        class="h-48 w-96 obeject-" />
+
+                    <!-- Event Type Badge -->
                     <div class="event-type-badge hackathon-badge">Hackathon</div>
-                    <div class="event-status-badge upcoming-badge hackathon-badge">Upcoming</div>
+                    <!-- Event Status Badge -->
+                    <div class="event-status-badge ongoing-badge hackathon-badge">Ongoing</div>
                 </div>
+
+                <!-- CONTENT -->
                 <div class="p-6">
+                    <!-- EVENT TITLE -->
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold text-gray-900">Hackathon</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">GDG TechSprint Hackathon 2026</h3>
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-users mr-1"></i>
-                            <span>---</span>
+                            <span>—</span> <!-- Participant count if needed -->
                         </div>
                     </div>
-                    <div class="flex items-center text-gray-500 mb-4">
+
+                    <!-- EVENT DATE & DURATION -->
+                    <div class="flex items-center text-gray-500 mb-4 text-sm">
                         <i class="far fa-calendar-alt mr-2"></i>
-                        <span>--- ----, 2025</span>
+                        <span>Dec 2025 - Jan 2026</span>
                         <i class="far fa-clock ml-4 mr-2"></i>
-                        <span>-- Hours</span>
+                        <span>2-months</span>
                     </div>
-                    <p class="text-gray-600 mb-4 line-clamp-2">--------------------</p>
+
+                    <!-- SHORT DESCRIPTION -->
+                    <p class="text-gray-600 mb-4 line-clamp-2">
+                        GDG TechSprint Hackathon 2026 is an exciting innovation sprint organized by GDG VJIT. Open
+                        for VJIT students in teams of 1-5. Top 3 teams will win rewards, Google swags, and goodies.
+                    </p>
+
+
+                    <!-- VENUE & DETAILS BUTTON -->
                     <div class="flex justify-between items-center">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span>VJIT College</span>
+                            <span>VJIT Campus</span>
                         </div>
-                        <button class="event-details-btn px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors">
+                        <button
+                            class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
                             Details
                         </button>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!--Upcoming events end here-->
-            
+
         </div>
 
-            <!-- Past Events -->
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Past Events</h2>
-            <div id="past-events" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Past Events -->
+        <h2 class="text-2xl font-bold text-gray-900 my-14">Past Events</h2>
+        <div id="past-events" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
-                <!-- Event Card (Past) (Induction Program) (Technical Talk)-->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="talk" 
-                data-date="2024-09-28" 
-                data-full-description="The GDG VJIT Induction Event was held on September 28, 2024, marking the official commencement of the new tenure for the Google Developer Group Campus (GDG) at VJIT. The event aimed to welcome new members, introduce the core team, and provide a comprehensive overview of the club's vision and future initiatives. Hosted by GDG Design Lead Yashasvi and DSS Design Lead Himabala, the session featured a powerful address by Amena Yasmeen, the Organizer of GDG VJIT 2024–2025, who shared inspiring insights about the club’s mission to foster a vibrant and collaborative space for students passionate about technology, innovation, and learning. Dr. D. Aruna Kumari, HOD of CSE, also addressed the gathering with her encouraging words. The event included team introductions, an interactive Q&A session, and a detailed walkthrough of upcoming events, workshops, and opportunities for student involvement throughout the year." 
-                data-photos='["assets/Event_images/induction_1.png", "assets/Event_images/induction_2.png", "assets/Event_images/induction_3.png", "assets/Event_images/induction_4.png"]' 
-                data-reel="https://www.instagram.com/reel/DAwJstahc0o/?igsh=MTM2MHZvdDlzcDlnag==" 
-                data-learn='["GDG’s vision and role in campus tech culture  ", "Opportunities for practical learning via events and workshops  ", "Meet the team leading the initiatives for the year ", "Overview of the tech and non-tech paths within the club ", " Future events like hackathons, study jams, and community projects"]' 
+            <!-- Event Card (Past) (Induction Program) (Technical Talk)-->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="talk"
+                data-date="2024-09-28"
+                data-full-description="The GDG VJIT Induction Event was held on September 28, 2024, marking the official commencement of the new tenure for the Google Developer Group Campus (GDG) at VJIT. The event aimed to welcome new members, introduce the core team, and provide a comprehensive overview of the club's vision and future initiatives. Hosted by GDG Design Lead Yashasvi and DSS Design Lead Himabala, the session featured a powerful address by Amena Yasmeen, the Organizer of GDG VJIT 2024–2025, who shared inspiring insights about the club’s mission to foster a vibrant and collaborative space for students passionate about technology, innovation, and learning. Dr. D. Aruna Kumari, HOD of CSE, also addressed the gathering with her encouraging words. The event included team introductions, an interactive Q&A session, and a detailed walkthrough of upcoming events, workshops, and opportunities for student involvement throughout the year."
+                data-photos='["assets/Event_images/induction_1.png", "assets/Event_images/induction_2.png", "assets/Event_images/induction_3.png", "assets/Event_images/induction_4.png"]'
+                data-reel="https://www.instagram.com/reel/DAwJstahc0o/?igsh=MTM2MHZvdDlzcDlnag=="
+                data-learn='["GDG’s vision and role in campus tech culture  ", "Opportunities for practical learning via events and workshops  ", "Meet the team leading the initiatives for the year ", "Overview of the tech and non-tech paths within the club ", " Future events like hackathons, study jams, and community projects"]'
                 data-prerequisites='["Enthusiasm for technology and innovation."]'>
                 <div class="relative h-48 bg-gradient-to-r from-purple-500 to-purple-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <!-- <i class="fas fa-robot text-white text-5xl"></i> -->
-                            <i class="fab fa-google text-white text-7xl"></i>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <!-- <i class="fas fa-robot text-white text-5xl"></i> -->
+                        <i class="fab fa-google text-white text-7xl"></i>
 
-                        </div>
-                        <div class="event-type-badge talk-badge">Technical Talk</div>
-                        <div class="event-status-badge past-badge talk-badge">Past Event</div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">Induction Program</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>225</span>
-                            </div>
+                    <div class="event-type-badge talk-badge">Technical Talk</div>
+                    <div class="event-status-badge past-badge talk-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Induction Program</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>225</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>Sept 28, 2024</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>09:30am - 12:30pm</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Sept 28, 2024</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>09:30am - 12:30pm</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">The GDG VJIT Induction Event was held on September
+                        28, 2024, marking the official commencement of the new tenure for the Google Developer Group
+                        Campus (GDG) at VJIT. The event aimed to welcome new members, introduce the core team, and
+                        provide a comprehensive overview of the club's vision and future initiatives. Hosted by GDG
+                        Design Lead Yashasvi and DSS Design Lead Himabala, the session featured a powerful address
+                        by Amena Yasmeen, the Organizer of GDG VJIT 2024–2025, who shared inspiring insights about
+                        the club’s mission to foster a vibrant and collaborative space for students passionate about
+                        technology, innovation, and learning. Dr. D. Aruna Kumari, HOD of CSE, also addressed the
+                        gathering with her encouraging words. The event included team introductions, an interactive
+                        Q&A session, and a detailed walkthrough of upcoming events, workshops, and opportunities for
+                        student involvement throughout the year.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>E-Block Auditorium</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">The GDG VJIT Induction Event was held on September 28, 2024, marking the official commencement of the new tenure for the Google Developer Group Campus (GDG) at VJIT. The event aimed to welcome new members, introduce the core team, and provide a comprehensive overview of the club's vision and future initiatives. Hosted by GDG Design Lead Yashasvi and DSS Design Lead Himabala, the session featured a powerful address by Amena Yasmeen, the Organizer of GDG VJIT 2024–2025, who shared inspiring insights about the club’s mission to foster a vibrant and collaborative space for students passionate about technology, innovation, and learning. Dr. D. Aruna Kumari, HOD of CSE, also addressed the gathering with her encouraging words. The event included team introductions, an interactive Q&A session, and a detailed walkthrough of upcoming events, workshops, and opportunities for student involvement throughout the year.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>E-Block Auditorium</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Event Card (Past) (GIT & GITHUB) (Hands-on Workshop) -->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="workshop" 
-                data-date="2024-10-18" 
-                data-full-description="The event introduced participants to Git and GitHub, essential tools for version control and collaborative development. Hosted at C-Block Seminar Hall, it featured live demonstrations, discussions, and an interactive quiz." 
-                data-photos='["assets/Event_images/github_1.png", "assets/Event_images/github_2.png", "assets/Event_images/github_3.png", "assets/Event_images/github_4.png", "assets/Event_images/github_5.png"]' 
-                data-reel="https://www.instagram.com/reel/DBUHhDkBJLn/?igsh=MXBuaHVjcm0wOHRlYg==" 
-                data-learn='["Fundamentals of Git and GitHub ", "Version control best practices", "Collaborative workflows using GitHub", "Handling repositories, branches, merges, and pull requests", "Real-world applications of GitHub in software development "]' 
+            <!-- Event Card (Past) (GIT & GITHUB) (Hands-on Workshop) -->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="workshop"
+                data-date="2024-10-18"
+                data-full-description="The event introduced participants to Git and GitHub, essential tools for version control and collaborative development. Hosted at C-Block Seminar Hall, it featured live demonstrations, discussions, and an interactive quiz."
+                data-photos='["assets/Event_images/github_1.png", "assets/Event_images/github_2.png", "assets/Event_images/github_3.png", "assets/Event_images/github_4.png", "assets/Event_images/github_5.png"]'
+                data-reel="https://www.instagram.com/reel/DBUHhDkBJLn/?igsh=MXBuaHVjcm0wOHRlYg=="
+                data-learn='["Fundamentals of Git and GitHub ", "Version control best practices", "Collaborative workflows using GitHub", "Handling repositories, branches, merges, and pull requests", "Real-world applications of GitHub in software development "]'
                 data-prerequisites='["Basic understanding of programming ", "Interest in version control"]'>
                 <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <i class="fab fa-github text-white text-7xl"></i>
-                        </div>
-                        <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
-                        <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fab fa-github text-white text-7xl"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">Introduction to GIT & GITHUB</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>115</span>
-                            </div>
+                    <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
+                    <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Introduction to GIT & GITHUB</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>115</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>Oct 18, 2024</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>9:30am - 12:30pm</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Oct 18, 2024</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>9:30am - 12:30pm</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">The event introduced participants to Git and GitHub,
+                        essential tools for version... </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>C-Block 2nd floor Seminar Hall</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">The event introduced participants to Git and GitHub, essential tools for version... </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>C-Block 2nd floor Seminar Hall</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Event Card (Past) (Gen AI Study Jams) (Study-Jams) -->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="study-jam" 
-                data-date="2024-10-01" 
-                data-full-description="This interactive session provided students with a foundational understanding of Generative AI (Gen-AI) and its practical applications in the real world. The event began with an introduction to the core concepts of Gen-AI, followed by an overview of powerful AI tools such as Google Vertex AI, APIs, and TensorFlow. Participants then engaged in hands-on development of AI-powered applications, gaining practical experience with cutting-edge technologies. The session concluded with real industry use cases and valuable career insights, equipping attendees with both knowledge and inspiration to explore the field further." 
-                data-photos='["assets/Event_images/gen_ai_1.png", "assets/Event_images/gen_ai_2.png", "assets/Event_images/gen_ai_3.png"]' 
-                data-reel="https://www.instagram.com/reel/DICF0SzTRTn/?igsh=MTU1cjhiaHJ1cW9xYw==" 
-                data-learn='["Basics of Generative AI ", "Hands-on experience with AI tools", "AI applications in content creation, automation, and problem-solving", "Collaboration and networking with industry experts", "AI-driven career opportunities"]' 
+            <!-- Event Card (Past) (Gen AI Study Jams) (Study-Jams) -->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="study-jam"
+                data-date="2024-10-01"
+                data-full-description="This interactive session provided students with a foundational understanding of Generative AI (Gen-AI) and its practical applications in the real world. The event began with an introduction to the core concepts of Gen-AI, followed by an overview of powerful AI tools such as Google Vertex AI, APIs, and TensorFlow. Participants then engaged in hands-on development of AI-powered applications, gaining practical experience with cutting-edge technologies. The session concluded with real industry use cases and valuable career insights, equipping attendees with both knowledge and inspiration to explore the field further."
+                data-photos='["assets/Event_images/gen_ai_1.png", "assets/Event_images/gen_ai_2.png", "assets/Event_images/gen_ai_3.png"]'
+                data-reel="https://www.instagram.com/reel/DICF0SzTRTn/?igsh=MTU1cjhiaHJ1cW9xYw=="
+                data-learn='["Basics of Generative AI ", "Hands-on experience with AI tools", "AI applications in content creation, automation, and problem-solving", "Collaboration and networking with industry experts", "AI-driven career opportunities"]'
                 data-prerequisites='["Basic programming knowledge", "Interest in AI and machine learning  "]'>
                 <div class="relative h-48 bg-gradient-to-r from-teal-500 to-teal-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-code text-white text-7xl"></i>
-                        </div>
-                        <div class="event-type-badge study-jam-badge">Study-jam</div>
-                        <div class="event-status-badge past-badge study-jam-badge">Past Event</div>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-7xl"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">Gen AI Study Jam</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>175</span>
-                            </div>
+                    <div class="event-type-badge study-jam-badge">Study-jam</div>
+                    <div class="event-status-badge past-badge study-jam-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Gen AI Study Jam</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>175</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>Oct 01, 2024</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>1 Month</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Oct 01, 2024</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>1 Month</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">This interactive session provided students with a
+                        foundational understanding of Generative AI (Gen-AI) and its practical applications in the
+                        real world. The event began with an introduction to the core concepts of Gen-AI, followed by
+                        an overview of powerful AI tools such as Google Vertex AI, APIs, and TensorFlow.
+                        Participants then engaged in hands-on development of AI-powered applications, gaining
+                        practical experience with cutting-edge technologies. The session concluded with real
+                        industry use cases and valuable career insights, equipping attendees with both knowledge and
+                        inspiration to explore the field further.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Generative AI Lab, N-Block</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">This interactive session provided students with a foundational understanding of Generative AI (Gen-AI) and its practical applications in the real world. The event began with an introduction to the core concepts of Gen-AI, followed by an overview of powerful AI tools such as Google Vertex AI, APIs, and TensorFlow. Participants then engaged in hands-on development of AI-powered applications, gaining practical experience with cutting-edge technologies. The session concluded with real industry use cases and valuable career insights, equipping attendees with both knowledge and inspiration to explore the field further.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>Generative AI Lab, N-Block</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Event Card (Past) (BUILD WITH AI) (Technical Talk) -->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="talk" 
-                data-date="2024-11-07" 
-                data-full-description="The workshop offered a comprehensive introduction to the fundamentals of Artificial Intelligence, highlighting its wide-ranging applications across various industries. The session began with an insightful introduction to AI by Hemanth Kumar, followed by an engaging overview of Machine Learning presented by Zaid Mohammad. Attendees participated in a hands-on AI task and took part in an interactive quiz session, which added a dynamic and practical element to the event. Nehal further enriched the workshop by discussing the diverse real-world applications of AI. The event concluded with valuable career guidance and a roadmap for aspiring AI enthusiasts." 
-                data-photos='["assets/Event_images/build_with_ai_1.png", "assets/Event_images/build_with_ai_2.png", "assets/Event_images/build_with_ai_3.png","assets/Event_images/build_with_ai_4.png"]' 
-                data-reel="https://www.instagram.com/reel/DCMnirShsyg/?igsh=Z3BhZGQ0MDM1bHZ2" 
-                data-learn='["Core AI and ML concepts ", "Supervised, Unsupervised, and Reinforcement Learning", "Real-world AI applications", "AI tools and frameworks (TensorFlow, Keras)", "Career paths in AI"]' 
+            <!-- Event Card (Past) (BUILD WITH AI) (Technical Talk) -->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="talk"
+                data-date="2024-11-07"
+                data-full-description="The workshop offered a comprehensive introduction to the fundamentals of Artificial Intelligence, highlighting its wide-ranging applications across various industries. The session began with an insightful introduction to AI by Hemanth Kumar, followed by an engaging overview of Machine Learning presented by Zaid Mohammad. Attendees participated in a hands-on AI task and took part in an interactive quiz session, which added a dynamic and practical element to the event. Nehal further enriched the workshop by discussing the diverse real-world applications of AI. The event concluded with valuable career guidance and a roadmap for aspiring AI enthusiasts."
+                data-photos='["assets/Event_images/build_with_ai_1.png", "assets/Event_images/build_with_ai_2.png", "assets/Event_images/build_with_ai_3.png","assets/Event_images/build_with_ai_4.png"]'
+                data-reel="https://www.instagram.com/reel/DCMnirShsyg/?igsh=Z3BhZGQ0MDM1bHZ2"
+                data-learn='["Core AI and ML concepts ", "Supervised, Unsupervised, and Reinforcement Learning", "Real-world AI applications", "AI tools and frameworks (TensorFlow, Keras)", "Career paths in AI"]'
                 data-prerequisites='["Basic programming skills ", "Familiarity with Python "]'>
                 <div class="relative h-48 bg-gradient-to-r from-purple-500 to-purple-600">
                     <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
@@ -286,215 +333,174 @@
                         <i class="far fa-clock ml-4 mr-2"></i>
                         <span>12:30pm - 03:30pm</span>
                     </div>
-                    <p class="text-gray-600 mb-4 line-clamp-2">A workshop providing foundational AI knowledge, covering its applications...</p>
+                    <p class="text-gray-600 mb-4 line-clamp-2">A workshop providing foundational AI knowledge,
+                        covering its applications...</p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>E-Block Auditorium</span>
                         </div>
-                        <button class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
+                        <button
+                            class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
                             Details
                         </button>
                     </div>
                 </div>
-                </div>
+            </div>
 
-                <!-- Event Card (Past) (Solution's Challenge Info Session) (Technical Talk)-->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="talk" 
-                data-date="2024-12-23" 
-                data-full-description="The Solutions Challenge Info Session organized by the GDG team for 1st-year students served as an engaging introduction to the world of Web Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic first-year students, the session provided a clear understanding of front-end and back-end technologies, essential tools, and modern development frameworks. The event also featured an overview of the Solution Challenge—Google’s flagship global competition—encouraging students to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs). Attendees gained insights into current industry trends, career opportunities, and valuable learning resources to kickstart their development journey. The session concluded with a dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin building real-world projects." 
-                data-photos='["assets/Event_images/info_session_1.png", "assets/Event_images/info_session_2.png", "assets/Event_images/info_session_3.png"]' 
-                data-reel="https://www.instagram.com/reel/DEt8JylM012/?igsh=enRldTQ3ZGhjbHBt" 
-                data-learn='["Fundamentals of Web Development (HTML, CSS, JavaScript) ", "Introduction to Front-end and Back-end frameworks", "Basics of App Development and platform choices (Android, iOS)", "Key industry trends in Web and App DevelopmentRoadmap for further learning and career opportunities in development"]' 
+            <!-- Event Card (Past) (Solution's Challenge Info Session) (Technical Talk)-->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="talk"
+                data-date="2024-12-23"
+                data-full-description="The Solutions Challenge Info Session organized by the GDG team for 1st-year students served as an engaging introduction to the world of Web Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic first-year students, the session provided a clear understanding of front-end and back-end technologies, essential tools, and modern development frameworks. The event also featured an overview of the Solution Challenge—Google’s flagship global competition—encouraging students to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs). Attendees gained insights into current industry trends, career opportunities, and valuable learning resources to kickstart their development journey. The session concluded with a dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin building real-world projects."
+                data-photos='["assets/Event_images/info_session_1.png", "assets/Event_images/info_session_2.png", "assets/Event_images/info_session_3.png"]'
+                data-reel="https://www.instagram.com/reel/DEt8JylM012/?igsh=enRldTQ3ZGhjbHBt"
+                data-learn='["Fundamentals of Web Development (HTML, CSS, JavaScript) ", "Introduction to Front-end and Back-end frameworks", "Basics of App Development and platform choices (Android, iOS)", "Key industry trends in Web and App DevelopmentRoadmap for further learning and career opportunities in development"]'
                 data-prerequisites='["Basic computer literacy", "Interest in Web and App Development"]'>
                 <div class="relative h-48 bg-gradient-to-r from-purple-500 to-purple-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-globe text-white text-7xl"></i>
-                        </div>
-                        <div class="event-type-badge talk-badge">Technical Talk</div>
-                        <div class="event-status-badge past-badge talk-badge">Past Event</div>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-globe text-white text-7xl"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">Info Session</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>100</span>
-                            </div>
+                    <div class="event-type-badge talk-badge">Technical Talk</div>
+                    <div class="event-status-badge past-badge talk-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Info Session</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>100</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>Dec 23, 2024</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>12:30pm - 03:30pm</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Dec 23, 2024</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>12:30pm - 03:30pm</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">The Solutions Challenge Info Session organized by the
+                        GDG team for 1st-year students served as an engaging introduction to the world of Web
+                        Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic
+                        first-year students, the session provided a clear understanding of front-end and back-end
+                        technologies, essential tools, and modern development frameworks. The event also featured an
+                        overview of the Solution Challenge—Google’s flagship global competition—encouraging students
+                        to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs).
+                        Attendees gained insights into current industry trends, career opportunities, and valuable
+                        learning resources to kickstart their development journey. The session concluded with a
+                        dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin
+                        building real-world projects.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>E-Block Computer Lab</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">The Solutions Challenge Info Session organized by the GDG team for 1st-year students served as an engaging introduction to the world of Web Development and App Development. Held in the VJIT lab and attended by 100 enthusiastic first-year students, the session provided a clear understanding of front-end and back-end technologies, essential tools, and modern development frameworks. The event also featured an overview of the Solution Challenge—Google’s flagship global competition—encouraging students to build impactful tech solutions aligned with the Sustainable Development Goals (SDGs). Attendees gained insights into current industry trends, career opportunities, and valuable learning resources to kickstart their development journey. The session concluded with a dynamic Q&A, where GDG mentors addressed queries and guided students on how to begin building real-world projects.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>E-Block Computer Lab</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Event Card (Past) (IDEATHON 2025) (Hands-on Workshop) -->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="workshop" 
-                data-date="2025-01-31" 
-                data-full-description="This was a creative, pitch-based event where students showcased innovative ideas aligned with the United Nations Sustainable Development Goals (SDGs). The event featured multiple rounds of idea presentations, during which participants received constructive feedback to refine their concepts. Judging criteria focused on creativity, feasibility, and potential impact. The event culminated in a final pitching round, followed by the announcement of the winners who impressed the panel with their forward-thinking solutions." 
-                data-photos='["assets/Event_images/ideathon_1.png", "assets/Event_images/ideathon_2.png", "assets/Event_images/ideathon_3.png", "assets/Event_images/ideathon_4.png"]' 
-                data-reel="https://www.instagram.com/reel/DFx39GABTmg/?igsh=MXNvOXhvM3hmM2xuZg==" 
-                data-learn='["Developing innovative solutions", "Effective presentation and communication skills", "Aligning ideas with real-world challenges", "Critical thinking and problem-solving", "Team collaboration and networking"]' 
+            <!-- Event Card (Past) (IDEATHON 2025) (Hands-on Workshop) -->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="workshop"
+                data-date="2025-01-31"
+                data-full-description="This was a creative, pitch-based event where students showcased innovative ideas aligned with the United Nations Sustainable Development Goals (SDGs). The event featured multiple rounds of idea presentations, during which participants received constructive feedback to refine their concepts. Judging criteria focused on creativity, feasibility, and potential impact. The event culminated in a final pitching round, followed by the announcement of the winners who impressed the panel with their forward-thinking solutions."
+                data-photos='["assets/Event_images/ideathon_1.png", "assets/Event_images/ideathon_2.png", "assets/Event_images/ideathon_3.png", "assets/Event_images/ideathon_4.png"]'
+                data-reel="https://www.instagram.com/reel/DFx39GABTmg/?igsh=MXNvOXhvM3hmM2xuZg=="
+                data-learn='["Developing innovative solutions", "Effective presentation and communication skills", "Aligning ideas with real-world challenges", "Critical thinking and problem-solving", "Team collaboration and networking"]'
                 data-prerequisites='["Interest in problem-solving ", "Teamwork and brainstorming skills "]'>
                 <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-lightbulb text-white text-7xl"></i>
-                        </div>
-                        <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
-                        <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-7xl"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">IDEATHON 2025</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>196</span>
-                            </div>
+                    <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
+                    <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">IDEATHON 2025</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>196</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>Jan 31, 2025</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>2 days</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>Jan 31, 2025</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>2 days</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">This was a creative, pitch-based event where students
+                        showcased innovative ideas aligned with... </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>E-Block Auditorium</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">This was a creative, pitch-based event where students showcased innovative ideas aligned with... </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>E-Block Auditorium</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Event Card (Past) (Python For AI) (Workshop)-->
-                <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" 
-                data-type="workshop" 
+            <!-- Event Card (Past) (Python For AI) (Workshop)-->
+            <div class="event-card bg-white rounded-lg shadow-sm overflow-hidden" data-type="workshop"
                 data-date="2025-04-15"
-                data-full-description="Python for AI was a two-day hands-on workshop organized by GDG VJIT for first-year students eager to explore Python and its role in Artificial Intelligence. The event focused on reinforcing Python fundamentals like variables, data types, conditionals, loops, lists, dictionaries, functions, and file handling through real-world examples and engaging activities. Students were introduced to Object-Oriented Programming and participated in interactive quizzes to keep the sessions lively and participative. A key highlight was the live demo of a Python-Firebase project that showcased how simple tech solutions can address real-world needs. The workshop concluded with an introductory session on Generative AI using Python, sparking curiosity about the future of AI. Overall, Python for AI empowered students with practical coding skills and inspired them to take their first steps into the world of modern software and AI development." 
-                data-photos='["assets/Event_images/python01.png", "assets/Event_images/python02.png", "assets/Event_images/python03.png", "assets/Event_images/python04.png", "assets/Event_images/python05.png"]' 
-                data-reel="https://www.instagram.com/reel/DItts2lMS5Y/?igsh=MWdzNTIzM2Mxa2dybw==" 
-                data-learn='["Fundamental Python Proficiency", "Problem-Solving Through Code", "Understanding of Data Structures", "Exposure to Real-World Applications", "Introduction to AI Concepts"]' 
+                data-full-description="Python for AI was a two-day hands-on workshop organized by GDG VJIT for first-year students eager to explore Python and its role in Artificial Intelligence. The event focused on reinforcing Python fundamentals like variables, data types, conditionals, loops, lists, dictionaries, functions, and file handling through real-world examples and engaging activities. Students were introduced to Object-Oriented Programming and participated in interactive quizzes to keep the sessions lively and participative. A key highlight was the live demo of a Python-Firebase project that showcased how simple tech solutions can address real-world needs. The workshop concluded with an introductory session on Generative AI using Python, sparking curiosity about the future of AI. Overall, Python for AI empowered students with practical coding skills and inspired them to take their first steps into the world of modern software and AI development."
+                data-photos='["assets/Event_images/python01.png", "assets/Event_images/python02.png", "assets/Event_images/python03.png", "assets/Event_images/python04.png", "assets/Event_images/python05.png"]'
+                data-reel="https://www.instagram.com/reel/DItts2lMS5Y/?igsh=MWdzNTIzM2Mxa2dybw=="
+                data-learn='["Fundamental Python Proficiency", "Problem-Solving Through Code", "Understanding of Data Structures", "Exposure to Real-World Applications", "Introduction to AI Concepts"]'
                 data-prerequisites='["A genuine interest in learning Python and its real-world applications.", "Basic familiarity with programming logic (from C or any other language) is helpful but not mandatory."]'>
                 <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
-                        <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
-                            <i class="fab fa-python text-white text-7xl"></i>
-                        </div>
-                        <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
-                        <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                    <div class="event-image-overlay absolute inset-0 flex items-center justify-center">
+                        <i class="fab fa-python text-white text-7xl"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900">Python For AI</h3>
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i>
-                                <span>196</span>
-                            </div>
+                    <div class="event-type-badge workshop-badge">Hands-on Workshop</div>
+                    <div class="event-status-badge past-badge workshop-badge">Past Event</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Python For AI</h3>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-1"></i>
+                            <span>196</span>
                         </div>
-                        <div class="flex items-center text-gray-500 mb-4">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>April 15, 2025</span>
-                            <i class="far fa-clock ml-4 mr-2"></i>
-                            <span>2 days</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 mb-4">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        <span>April 15, 2025</span>
+                        <i class="far fa-clock ml-4 mr-2"></i>
+                        <span>2 days</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 line-clamp-2">The Python for Beginners event was specially curated
+                        for first-year students who were new to programming. This session served as an introductory
+                        stepping stone into the world of programming using Python, one of the most popular and
+                        beginner-friendly languages in the tech industry. The event was designed to demystify basic
+                        programming concepts and to encourage a hands-on understanding of how Python could be used
+                        for real-world problem solving. It was conducted in an interactive format, encouraging
+                        questions and discussion to build a solid foundation for every student.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>C-Block Ground Floor Hall</span>
                         </div>
-                        <p class="text-gray-600 mb-4 line-clamp-2">The Python for Beginners event was specially curated for first-year students who were new to programming. This session served as an introductory stepping stone into the world of programming using Python, one of the most popular and beginner-friendly languages in the tech industry. The event was designed to demystify basic programming concepts and to encourage a hands-on understanding of how Python could be used for real-world problem solving. It was conducted in an interactive format, encouraging questions and discussion to build a solid foundation for every student.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span>C-Block Ground Floor Hall</span>
-                            </div>
-                            <button class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
-                                Details
-                            </button>
-                        </div>
+                        <button
+                            class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
+                            Details
+                        </button>
                     </div>
                 </div>
-
-                <!-- Event Card (GDG TechSprint Hackathon 2026) -->
-<div class="event-card bg-white rounded-lg shadow-sm overflow-hidden"
-     data-type="hackathon"
-     data-date="2025-12-10"
-     data-full-description="GDG TechSprint Hackathon 2026 is an exciting innovation sprint organized by the Google Developer Group. The hackathon is open exclusively for VJIT students and follows a team format of 1 to 5 members. Registration is completely free. Top 3 student teams will receive exciting rewards, Google swags, and goodies."     
-     data-photos='["assets/Event_images/techsprint_1.jpeg","assets/Event_images/techsprint_2.jpeg","assets/Event_images/techsprint_3.jpeg"]'
-     data-image-fit="contain"
-     >
-
-    <!-- TOP SECTION WITH LOGO -->
-    <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
-        <!-- LOGO IMAGE -->
-        <img 
-            src="assets/Event_images/Techsprint_logo.jpeg" 
-            alt="GDG TechSprint Hackathon Logo"
-            class="h-24 w-24 object-contain bg-blue rounded-full p-2"
-        />
-       
-        <!-- Event Type Badge -->
-        <div class="event-type-badge hackathon-badge">Hackathon</div>
-        <!-- Event Status Badge -->
-        <div class="event-status-badge ongoing-badge hackathon-badge">Ongoing</div>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="p-6">
-        <!-- EVENT TITLE -->
-        <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-semibold text-gray-900">GDG TechSprint Hackathon 2026</h3>
-            <div class="flex items-center text-sm text-gray-500">
-                <i class="fas fa-users mr-1"></i>
-                <span>—</span> <!-- Participant count if needed -->
             </div>
-        </div>
-
-        <!-- EVENT DATE & DURATION -->
-        <div class="flex items-center text-gray-500 mb-4 text-sm">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>Dec 2025 - Jan 2026</span>
-            <i class="far fa-clock ml-4 mr-2"></i>
-            <span>2-months</span>
-        </div>
-
-        <!-- SHORT DESCRIPTION -->
-        <p class="text-gray-600 mb-4 line-clamp-2">
-            GDG TechSprint Hackathon 2026 is an exciting innovation sprint organized by GDG VJIT. Open for VJIT students in teams of 1-5. Top 3 teams will win rewards, Google swags, and goodies.
-        </p>
 
 
-        <!-- VENUE & DETAILS BUTTON -->
-        <div class="flex justify-between items-center">
-            <div class="flex items-center text-sm text-gray-500">
-                <i class="fas fa-map-marker-alt mr-2"></i>
-                <span>VJIT Campus</span>
-            </div>
-            <button class="event-details-btn px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
-                Details
-            </button>
+
+
+            <!-- Past Events End here -->
+
         </div>
     </div>
-</div>
-
-
-                <!-- Past Events End here -->
-
-            </div>
-        </div>
     </div>
     <footer class="bg-gray-800 text-white pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -508,7 +514,8 @@
                         <a href="https://x.com/GDGC_VJIT" class="text-gray-400 hover:text-white">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/gdgc_vjit?igsh=MWdqc2s2MHk1aGV5eQ==" class="text-gray-400 hover:text-white">
+                        <a href="https://www.instagram.com/gdgc_vjit?igsh=MWdqc2s2MHk1aGV5eQ=="
+                            class="text-gray-400 hover:text-white">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://www.linkedin.com/company/gdgc-vjit/" class="text-gray-400 hover:text-white">
@@ -517,7 +524,8 @@
                         <a href="https://www.youtube.com/@gdscVJIT" class="text-gray-400 hover:text-white">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61572195376190" class="text-gray-400 hover:text-white">
+                        <a href="https://www.facebook.com/profile.php?id=61572195376190"
+                            class="text-gray-400 hover:text-white">
                             <i class="fab fa-facebook"></i>
                         </a>
                         <a href="https://www.threads.net/@GDG_vjit" class="text-gray-400 hover:text-white">
@@ -529,11 +537,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="/events" class="text-gray-400 hover:text-white">Events</a></li>
-                        <li><a href="/projectsud" class="text-gray-400 hover:text-white">Projects</a></li>
-                        <li><a href="/team" class="text-gray-400 hover:text-white">Team</a></li>
-                        <li><a href="/wall-of-fame-ud" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                        <li><a href="/index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="/events.html" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="/projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="/team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="/wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
                     </ul>
                 </div>
 
@@ -581,13 +589,15 @@
                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"></span>
-            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div
+                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full transition-opacity">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 opacity-75">
                     <div class="sm:flex sm:items-start">
                         <div class="mt-3 text-start sm:mt-0 sm:ml-4 sm:text-left w-full">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Event Title</h3>
+                                    <h3 class="text-2xl leading-6 font-bold text-gray-900" id="modal-title">Event Title
+                                    </h3>
                                     <div class="mt-2 flex items-center text-gray-500">
                                         <i class="far fa-calendar-alt mr-2"></i>
                                         <span id="modal-date">Date</span>
@@ -595,43 +605,52 @@
                                         <span id="modal-time">Time</span>
                                     </div>
                                 </div>
-                                <button id="close-modal" class="text-gray-400 hover:text-gray-500"><i class="fas fa-times"></i></button>
+                                <button id="close-modal" class="text-gray-400 hover:text-gray-500"><i
+                                        class="fas fa-times"></i></button>
                             </div>
                             <div class="mt-4">
                                 <div class="flex items-center mb-4">
-                                    <div class="bg-blue-100 p-3 rounded-lg mr-4"><i class="fas fa-code text-blue-600"></i></div>
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4"><i
+                                            class="fas fa-code text-blue-600"></i></div>
                                     <div>
                                         <h4 class="text-gray-900">Event Details</h4>
                                         <p class="text-sm text-gray-500" id="modal-location">Location</p>
                                     </div>
                                 </div>
-    
+
                                 <!-- Photo Carousel -->
                                 <div class="mb-4">
                                     <h4 class="text-gray-900 mb-2">Event Photos</h4>
                                     <div class="relative">
                                         <div id="photo-carousel" class="overflow-hidden rounded-lg">
-                                            <div id="carousel-images" class="flex transition-transform duration-300"></div>
+                                            <div id="carousel-images" class="flex transition-transform duration-300">
+                                            </div>
                                         </div>
-                                        <button id="carousel-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-left"></i></button>
-                                        <button id="carousel-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i class="fas fa-chevron-right"></i></button>
+                                        <button id="carousel-prev"
+                                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i
+                                                class="fas fa-chevron-left"></i></button>
+                                        <button id="carousel-next"
+                                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"><i
+                                                class="fas fa-chevron-right"></i></button>
                                     </div>
                                     <!-- Add pagination dots container -->
                                     <div id="carousel-dots" class="flex justify-center mt-2 space-x-2"></div>
                                 </div>
-    
+
                                 <!-- Watch Reel Button -->
                                 <div class="mb-4">
-                                    <a id="watch-reel-btn" href="#" target="_blank" class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium transition-colors hover:from-blue-700 hover:to-blue-600">
+                                    <a id="watch-reel-btn" href="#" target="_blank"
+                                        class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium transition-colors hover:from-blue-700 hover:to-blue-600">
                                         <i class="fab fa-instagram mr-2"></i> Watch Reel
                                     </a>
                                 </div>
-    
+
                                 <div class="bg-gray-50 p-4 rounded-lg mb-4">
                                     <h4 class="text-gray-900 mb-2">About this event</h4>
-                                    <p class="text-gray-600" id="modal-description">Event description will be populated here.</p>
+                                    <p class="text-gray-600" id="modal-description">Event description will be populated
+                                        here.</p>
                                 </div>
-                                
+
                                 <div class="grid grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <h5 class="text-sm text-gray-500">Participants Attended</h5>
@@ -639,7 +658,8 @@
                                     </div>
                                     <div>
                                         <h5 class="text-sm text-gray-500">Event Type</h5>
-                                        <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded" id="modal-type">Type</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded"
+                                            id="modal-type">Type</span>
                                     </div>
                                     <div>
                                         <h5 class="text-sm text-gray-500">Difficulty</h5>
@@ -650,7 +670,7 @@
                                         <p class="text-gray-900" id="modal-duration">Duration</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-4">
                                     <h4 class=" text-gray-900 mb-2">What you'll learn</h4>
                                     <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-learn">
@@ -659,7 +679,7 @@
                                         <li>Item 3</li>
                                     </ul>
                                 </div>
-                                
+
                                 <div class="mb-4">
                                     <h4 class=" text-gray-900 mb-2">Prerequisites</h4>
                                     <ul class="list-disc list-inside text-gray-600 space-y-1" id="modal-prerequisites">
@@ -674,11 +694,12 @@
             </div>
         </div>
 
-    <!-- Footer -->
-    
-    
-    <script src="js/header.js" defer></script>
-    <script src="js/events.js" defer></script>
-    
+        <!-- Footer -->
+
+
+        <script src="js/header.js" defer></script>
+        <script src="js/events.js" defer></script>
+
 </body>
+
 </html>
