@@ -22,7 +22,7 @@ function loadHeader() {
 function setActiveNavLink() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     navLinks.forEach(link => {
         const href = link.getAttribute('href').split('/').pop();
         if (href === currentPath) {
@@ -37,11 +37,11 @@ function setActiveNavLink() {
 function initializeMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-  
+
     if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
     }
 }
 
@@ -69,35 +69,35 @@ function initializeSmoothScrolling() {
 }
 
 // Display events based on page context
-function displayEvents(cards) {
-    const upcomingContainer = document.getElementById('upcoming-events');
-    const pastContainer = document.getElementById('past-events');
-    const currentDate = new Date();
+// function displayEvents(cards) {
+//     const upcomingContainer = document.getElementById('upcoming-events');
+//     const pastContainer = document.getElementById('past-events');
+//     const currentDate = new Date();
 
-    const upcomingEvents = [];
-    const pastEvents = [];
+//     const upcomingEvents = [];
+//     const pastEvents = [];
 
-    cards.forEach(card => {
-        const eventDate = new Date(card.dataset.date);
-        (eventDate >= currentDate ? upcomingEvents : pastEvents).push(card.cloneNode(true));
-    });
+//     cards.forEach(card => {
+//         const eventDate = new Date(card.dataset.date);
+//         (eventDate >= currentDate ? upcomingEvents : pastEvents).push(card.cloneNode(true));
+//     });
 
-    // Sort events
-    upcomingEvents.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)); // Closest first for upcoming
-    pastEvents.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));    // Most recent first for past
+//     // Sort events
+//     upcomingEvents.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)); // Closest first for upcoming
+//     pastEvents.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));    // Most recent first for past
 
-    if (upcomingContainer) {
-        upcomingContainer.innerHTML = '';
-        pastContainer.innerHTML = '';
-        upcomingEvents.forEach(event => upcomingContainer.appendChild(event));
-        pastEvents.forEach(event => pastContainer.appendChild(event));
-    } else {
-        pastContainer.innerHTML = '';
-        pastEvents.forEach(event => pastContainer.appendChild(event));
-    }
+//     if (upcomingContainer) {
+//         upcomingContainer.innerHTML = '';
+//         pastContainer.innerHTML = '';
+//         upcomingEvents.forEach(event => upcomingContainer.appendChild(event));
+//         pastEvents.forEach(event => pastContainer.appendChild(event));
+//     } else {
+//         pastContainer.innerHTML = '';
+//         pastEvents.forEach(event => pastContainer.appendChild(event));
+//     }
 
-    attachDetailsButtonListeners();
-}
+//     attachDetailsButtonListeners();
+// }
 
 // Attach event listeners to details buttons
 function attachDetailsButtonListeners() {
@@ -433,6 +433,22 @@ function attachDetailsButtonListeners() {
 
 // Handle back button to close modal
 document.addEventListener('DOMContentLoaded', () => {
+    loadHeader();
+    attachDetailsButtonListeners();
+    const upcomingContainer = document.getElementById('upcoming-events');
+    const pastContainer = document.getElementById('past-events');
+
+    const upcomingEventCards = upcomingContainer
+        ? Array.from(upcomingContainer.querySelectorAll('.event-card'))
+        : [];
+
+    const pastEventCards = pastContainer
+        ? Array.from(pastContainer.querySelectorAll('.event-card'))
+        : [];
+
+    // Used by search & filters
+    const allEventCards = [...upcomingEventCards, ...pastEventCards];
+
     const modal = document.getElementById('event-modal');
     window.addEventListener('popstate', (event) => {
         if (event.state && event.state.modalOpen && modal) {
@@ -442,55 +458,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadHeader();
-    const allEventCards = document.querySelectorAll('.event-card');
-    displayEvents(allEventCards);
+    // const allEventCards = document.querySelectorAll('.event-card');
+    // displayEvents(allEventCards);
 
     // Filter buttons
     const filterButtons = document.querySelectorAll('.filter-btn');
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
-                button.classList.add('active', 'bg-blue-600', 'text-white');
-                const filter = button.dataset.filter;
-                const filteredCards = filter === 'all'
-                    ? allEventCards
-                    : Array.from(allEventCards).filter(card => card.dataset.type === filter);
-                displayEvents(filteredCards);
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn =>
+                btn.classList.remove('active', 'bg-blue-600', 'text-white')
+            );
+
+            button.classList.add('active', 'bg-blue-600', 'text-white');
+            const filter = button.dataset.filter;
+
+            allEventCards.forEach(card => {
+                const matches =
+                    filter === 'all' || card.dataset.type === filter;
+                card.classList.toggle('hidden', !matches);
             });
         });
-    }
+    });
+
 
     // Search input
     const searchInput = document.getElementById('search-input');
+
     if (searchInput) {
         searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            const searchedCards = Array.from(allEventCards).filter(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                return title.includes(searchTerm) || description.includes(searchTerm);
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            allEventCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+
+                const matches =
+                    title.includes(searchTerm) ||
+                    description.includes(searchTerm);
+
+                card.classList.toggle('hidden', !matches);
             });
-            displayEvents(searchedCards);
         });
     }
 
-    // Sort select
+
     const sortSelect = document.getElementById('sort-select');
+
     if (sortSelect) {
         sortSelect.addEventListener('change', () => {
             const sortValue = sortSelect.value;
-            const sortedCards = Array.from(allEventCards).sort((a, b) => {
+
+            const sortedCards = [...allEventCards].sort((a, b) => {
                 const dateA = new Date(a.dataset.date);
                 const dateB = new Date(b.dataset.date);
-                const nameA = a.querySelector('h3').textContent;
-                const nameB = b.querySelector('h3').textContent;
+
+                const nameA = a.querySelector('h3')?.textContent.trim();
+                const nameB = b.querySelector('h3')?.textContent.trim();
+
                 if (sortValue === 'date-asc') return dateA - dateB;
                 if (sortValue === 'date-desc') return dateB - dateA;
                 if (sortValue === 'name-asc') return nameA.localeCompare(nameB);
-                if (sortValue === 'name-desc') return nameB.localeCompare(nameB);
+                if (sortValue === 'name-desc') return nameB.localeCompare(nameA);
+
+                return 0;
             });
-            displayEvents(sortedCards);
+
+            // Re-append in new order
+            sortedCards.forEach(card => upcomingContainer.appendChild(card));
         });
     }
+
 });
