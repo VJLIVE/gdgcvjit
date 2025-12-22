@@ -1,114 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDG Projects - Under Development</title>
+    <title>Wall of Fame - GDG VJIT</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="css/projectsud.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <!-- Add this in the <head> section of your HTML -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-        <link rel="icon" type="image/png" href="./assets/favicon.ico">
-        <script src="js/header.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/team.css">
+    <link rel=""stylesheet href="css/index.css">
+    <link rel="icon" type="image/png" href="./assets/favicon.ico">
+    <script src="js/header.js" defer></script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
-    <div id="header-container"></div>
-    <main class="flex-grow flex flex-col items-center justify-center px-4 text-center py-12">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-12">
-                <!-- <img src="https://illustrations.popsy.co/amber/development.svg" alt="Under development illustration" class="w-64 mx-auto"> -->
-            </div>
-            
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Wall of Fame Section Under Development
-            </h1>
-            
-            <p class="text-xl text-gray-600 mb- max-w-3xl mx-auto">
-                The spotlight’s warming up! We're crafting a dazzling Wall of Fame to celebrate the rockstars of GDG VJIT, from epic internships to jaw-dropping projects!
-            </p>
-            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-10 mt-10 animate-pulse rounded-md shadow-md max-w-2xl mx-auto">
-                <p class="text-lg font-semibold">
-                  While we prepare this section, why not try some fun coding-related games?
-                </p>
-            </div>
-              
-              
-              
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Memory Game Card -->
-                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startMemoryGame()">
-                    <div class="google-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-brain text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Memory Game</h3>
-                    <p class="text-gray-600">Test your memory with tech icons</p>
-                </div>
-                
-                <!-- Typing Game Card -->
-                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startTypingGame()">
-                    <div class="google-red text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-keyboard text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Typing Test</h3>
-                    <p class="text-gray-600">How fast can you type code snippets?</p>
-                </div>
-                
-                <!-- Quiz Game Card -->
-                <div class="game-card bg-white rounded-xl shadow-md p-6 cursor-pointer transition" onclick="startQuizGame()">
-                    <div class="google-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-question text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Tech Quiz</h3>
-                    <p class="text-gray-600">Test your tech knowledge</p>
-                </div>
-            </div>
-            
-            <!-- Game Containers (hidden by default) -->
-            <div id="memory-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-semibold">Memory Game</h2>
-                    <div class="flex items-center">
-                        <span class="mr-4">Moves: <span id="moves">0</span></span>
-                        <button onclick="resetMemoryGame()" class="google-blue text-white px-4 py-2 rounded">Reset</button>
-                    </div>
-                </div>
-                <div id="memory-game" class="grid grid-cols-4 gap-4"></div>
-            </div>
-            
-            <div id="typing-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
-                <h2 class="text-2xl font-semibold mb-6">Typing Test</h2>
-                <div class="mb-6 p-4 bg-gray-100 rounded">
-                    <p id="typing-text" class="text-lg mb-4">Loading code snippet...</p>
-                    <input type="text" id="typing-input" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Start typing here...">
-                </div>
-                <div class="flex justify-between">
-                    <div>
-                        <span class="font-medium">Time: <span id="typing-time">0</span>s</span>
-                        <span class="ml-4 font-medium">WPM: <span id="typing-wpm">0</span></span>
-                    </div>
-                    <button onclick="resetTypingGame()" class="google-red text-white px-4 py-2 rounded">Reset</button>
-                </div>
-            </div>
-            
-            <div id="quiz-game-container" class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
-                <h2 class="text-2xl font-semibold mb-6">Tech Quiz</h2>
-                <div id="quiz-question" class="text-lg mb-6">Loading question...</div>
-                <div id="quiz-options" class="grid grid-cols-1 gap-3 mb-6"></div>
-                <div class="flex justify-between items-center">
-                    <span class="font-medium">Score: <span id="quiz-score">0</span></span>
-                    <button onclick="nextQuizQuestion()" class="google-green text-white px-4 py-2 rounded">Next Question</button>
-                </div>
-            </div>
-            
-            <div class="text-gray-600">
-                <p>Check back soon for our complete projects showcase!</p>
-            </div>
-        </div>
-    </main>
 
-   
+<body class="bg-gray-50 font-sans">
+    <!--Header-->
+    <div id="header-container"></div>
+    <div style="background-image: url('assets/team-page-banner.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+        class="text-white pt-[200px] pb-8 text-center">
+        <h1 class="text-4xl font-bold">Wall of Fame</h1>
+        <h2 class="text-2xl font-bold">Tenure 2024-25</h2>
+        <p class="text-lg mt-2">The dedicated team that shaped and strengthened GDG VJIT</p>
+    </div >
+    <!-- Main Content -->
+
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <!-- Leadership Section -->
+<section class="mb-20">
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Leadership</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Organizer (Organizer) -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/amena1.png" alt="Organizer"
+class="w-32 h-32 rounded-full object-cover border-4 border-orange-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Amena Yasmeen</h3>
+<p class="text-orange-600 font-semibold mb-2">Organizer</p>
+</div>
+</div>
+<div class="flip-card-back bg-orange-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">In our community, it’s all about growing together.
+Stay curious, stay brave, and always be open to learning something new.</p>
+<p>- Amena Yasmeen</p>
+<!-- <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/amenayasmeen/"
+class="text-orange-500 hover:text-orange-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="mailto:amena.22yasmeen@gmail.com"
+class="text-orange-500 hover:text-orange-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Technical Lead (Parth Asawa) -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/parth1.png" alt="Technical Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Parth Asawa</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-blue-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">Don’t wait to be perfect to start. Just build what
+excites you, and the journey will shape itself from there.</p>
+<p>- Parth Asawa</p>
+<!-- <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/parthasawa/"
+class="text-blue-500 hover:text-blue-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/parth.asawa?igsh=cXlpMXdudXVxbGcy"
+class="text-blue-500 hover:text-blue-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:parthasawa1124@gmail.com"
+class="text-blue-500 hover:text-blue-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Design Lead -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/yashasvi1.png" alt="Design Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Dasari Yashasvi</h3>
+<p class="text-purple-600 font-semibold mb-2">Design Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-purple-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">Design is more than just visuals. It’s about
+creating something that connects, something that feels right.</p>
+<p>- Dasari Yashasvi</p>
+<!-- <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/yashasvi-dasari-6bba20265/"
+class="text-purple-500 hover:text-purple-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/yashhasvi__/profilecard/?igsh=MXFvZHFrcXptajRrMQ=="
+class="text-purple-500 hover:text-purple-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:dasariyashasvi@gmail.com"
+class="text-purple-500 hover:text-purple-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Marketing Lead -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/anirudh1.png" alt="Productions Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Anirudh Singh</h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-red-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">Good stories deserve to be heard. Let’s amplify
+our voice and inspire others with the amazing things we’re doing.</p>
+<p>- Anirudh Singh</p>
+<!-- <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/anirudh-singh-495127324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-red-500 hover:text-red-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/_.anirudh_singh._?igsh=Z2JqZDkwaWxvM3Ni"
+class="text-red-500 hover:text-red-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:singhanirudh516@gmail.com"
+class="text-red-500 hover:text-red-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Productions Lead -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/safwan1.png" alt="Marketing Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Suhaib Safwan Ahmed</h3>
+<p class="text-yellow-600 font-semibold mb-2">Productions Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-yellow-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">It’s not just about recording events, it’s about
+capturing the energy, the passion, and the memories that make us who we are.</p>
+<p>- Suhaib Safwan Ahmed</p>
+<!-- <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="http://linkedin.com/in/suhaib-safwan-89aa00359"
+class="text-yellow-500 hover:text-yellow-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/suhaibsafwan.ahmed?igsh=bGdiY3ExaDFnNTcx&utm_source=qr"
+class="text-yellow-500 hover:text-yellow-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:suhaibsafwanahmed@gmail.com"
+class="text-yellow-500 hover:text-yellow-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Organizing Lead -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/rohan1.png" alt="Organizing Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-indigo-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Rohan Kumar</h3>
+<p class="text-indigo-600 font-semibold mb-2">Organizing Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-indigo-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">Behind every great event is a team that cares. I
+believe in creating moments that people remember for a long time.</p>
+<p>- Rohan Kumar</p>
+<!-- <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/rohan-kumar-105891259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-indigo-500 hover:text-indigo-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/rohankumar9762?igsh=MXRwajVtMDJ5M2F4"
+class="text-indigo-500 hover:text-indigo-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:rkyadav7981@gmail.com"
+class="text-indigo-500 hover:text-indigo-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Documentation Lead -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/akshaya1.png" alt="Documentation Lead"
+class="w-32 h-32 rounded-full object-cover border-4 border-pink-500 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Konatham Akshaya</h3>
+<p class="text-pink-600 font-semibold mb-2">Documentation Lead</p>
+</div>
+</div>
+<div class="flip-card-back bg-pink-50 p-6 flex items-center justify-center">
+<div class="text-center">
+<p class="text-gray-700 text-sm mb-2">Every detail matters. When we document our
+journey, we’re building a story that others can learn from and be inspired by.</p>
+<p>- Konatham Akshaya</p>
+<!-- <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm transition transform hover:scale-105">Profile</button> -->
+<div class="mt-4 flex justify-center space-x-4">
+<a href="https://www.linkedin.com/in/akshaya-reddy-konatham-8ab714279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-pink-500 hover:text-pink-700 transition-colors"><i
+class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/akshaya_reddy_konatham?igsh=bWM1ZXh4Y2NidDZm"
+class="text-pink-500 hover:text-pink-700 transition-colors"><i
+class="fab fa-instagram"></i></a>
+<a href="mailto:akshayareddykonatham@gmail.com"
+class="text-pink-500 hover:text-pink-700 transition-colors"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Team Domains -->
+<section>
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Teams</h2>
+
+<!-- Domain Navigation -->
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+<button onclick="toggleDomain('technical')"
+class="domain-btn bg-blue-100 text-blue-800 px-6 py-3 rounded-full font-semibold hover:bg-blue-200 transition active-domain"
+data-domain="technical">
+<i class="fas fa-code mr-2"></i> Technical Team
+</button>
+<button onclick="toggleDomain('design')"
+class="domain-btn bg-purple-100 text-purple-800 px-6 py-3 rounded-full font-semibold hover:bg-purple-200 transition"
+data-domain="design">
+<i class="fas fa-paint-brush mr-2"></i> Design Team
+</button>
+<button onclick="toggleDomain('organizing')"
+class="domain-btn bg-green-100 text-green-800 px-6 py-3 rounded-full font-semibold hover:bg-green-200 transition"
+data-domain="organizing">
+<i class="fas fa-calendar-alt mr-2"></i> Organizing Team
+</button>
+<button onclick="toggleDomain('production')"
+class="domain-btn bg-yellow-100 text-yellow-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-200 transition"
+data-domain="production">
+<i class="fas fa-video mr-2"></i> Production Team
+</button>
+<button onclick="toggleDomain('marketing')"
+class="domain-btn bg-red-100 text-red-800 px-6 py-3 rounded-full font-semibold hover:bg-red-200 transition"
+data-domain="marketing">
+<i class="fas fa-bullhorn mr-2"></i> Marketing Team
+</button>
+<button onclick="toggleDomain('documentation')"
+class="domain-btn bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full font-semibold hover:bg-indigo-200 transition"
+data-domain="documentation">
+<i class="fas fa-file-alt mr-2"></i> Documentation
+</button>
+</div>
+
+<!-- Technical Team (Default visible) -->
+
+<div id="technical" class="domain-section active overflow-y-scroll">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
+<!--Sricharan-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sricharan.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sricharan Dhupati</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/sricharan-dhupati-634ba9305/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/Sricharan-Dhupati"
+class="text-blue-600 hover:text-blue-800"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/sricharan._dhu/?hl=en"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:sricharan.dhupati@gmail.com"
+class="text-blue-600 hover:text-blue-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Abdullah-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/abdullah.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Abdullah Aarif Shaikh </h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/abdullah-aarif-shaikh-0b248b227"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/abdullahdabdab123Abdullahaarif"
+class="text-blue-600 hover:text-blue-800"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/abdullah_aarif_itsme/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:abdullahaarif3@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Nehal-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/nehal.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Akula Nehal</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/akula-nehal-933011290/" class="text-blue-500 hover:text-blue-700"><i
+class="fab fa-linkedin"></i></a>
+<a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+
+
+<!--Amitouja-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/amitouja.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Amitouja Bose Tagore</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/amitouja/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/Amitouja" class="text-blue-600 hover:text-blue-800"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/_amitouja_/?hl=en"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:amitoujaboset@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Fauzaan-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/fouzaan.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Mohammed Fouzaan Hussain</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/mohammed-fouzaan-hussain-36b078297/" class="text-blue-500 hover:text-blue-700"><i
+class="fab fa-linkedin"></i></a>
+<a href="mailto:mohammedfouzaanhussain@gmail.com"
+class="text-blue-600 hover:text-blue-800"><i class="fas fa-envelope"></i></a>
+
+</div>
+</div>
+</div>
+
+<!--Mubashir-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/mubashir.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Mohammad Mubashir Ahmed</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/abdullah-aarif-shaikh-0b248b227"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/abdullahdabdab123Abdullahaarif"
+class="text-blue-600 hover:text-blue-800"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/abdullah_aarif_itsme/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:abdullahaarif3@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Sohan Kondas-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sohan.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sohan Kondass</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/sohan-kondass-978b26289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/Sohan-Kondas" class="text-blue-600 hover:text-blue-800"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/sohxn18?igsh=NTQ4MDRqYzYxOWk4"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:sohank1866@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!-- Rizwan -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/rizwan.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Syed Rizwan</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/syed-rizwan-2264b5289/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/rizwansyed995" class="text-blue-600 hover:text-blue-800"><i
+class="fab fa-github"></i></a>
+<a href="mailto:rizwansyed995@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Akshara-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/akshara.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Akshara Dondeti</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/aksharadondeti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/AksharaDondeti" class="text-blue-600 hover:text-blue-800"><i
+class="fab fa-github"></i></a>
+<a href="mailto:aksharadondeti@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Avinash-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/avinash.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Alugari Avinash Reddy </h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/avinashreddy-alugari"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/avinashreddyalugari"
+class="text-blue-600 hover:text-blue-800"><i class="fab fa-github"></i></a>
+
+<a href="mailto:avinashreddyalugari@gmail.com"
+class="text-blue-600 hover:text-blue-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Hemanth-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/hemanth.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Hemanth kumar Gajavelli</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/hemanth-kumar-91211a25a/"
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/Hemanth-c56" class="text-blue-600 hover:text-blue-800"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/hemanth_c56?igsh=MWo5cGc3MnVocno5cg=="
+class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:hemanthceps@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+
+<!--Anudeep-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/anudeep.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Vabblisetti Satya Anudeep</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="linkedin.com/in/satyaanudeep/" class="text-blue-500 hover:text-blue-700"><i
+class="fab fa-linkedin"></i></a>
+<a href="mailto:satyaanudeep.vabblisetti@gmail.com"
+class="text-blue-600 hover:text-blue-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Zaid-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/zaid.png" alt="image"
+class="w-32 h-32 rounded-full object-cover border-4 border-blue-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Zaid Mohammed</h3>
+<p class="text-blue-600 font-semibold mb-2">Technical Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="mailto:zaid.md221@gmail.com" class="text-blue-600 hover:text-blue-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Design Team -->
+<div id="design" class="domain-section">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!--Kashish-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/kashish.png" alt="Design Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Kashish. K</h3>
+<p class="text-purple-600 font-semibold mb-2">Designing Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/kashish-k-59941a334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/kashishhh226"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/kashishk_0612?igsh=Z3Yzcm1kcDZmZ2Jp"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:kashxhs226@gmail.com" class="text-purple-600 hover:text-purple-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Gokul-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/gokul.png" alt="Design Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Gokul Pilligundla</h3>
+<p class="text-purple-600 font-semibold mb-2">Designing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/gokul-pilligundla-a1a0b82b8/"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/gokul998517"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/gokul_pilligundla?igsh=MWJwMXRibXBkem9mcQ=="
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:pilligundlagokul@gmail.com"
+class="text-purple-600 hover:text-purple-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Sana-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sana.png" alt="Design Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sana Fatima </h3>
+<p class="text-purple-600 font-semibold mb-2">Designing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/sana-fatima-641a4628a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/__san.13x__?igsh=MXR1Njg0eHJxM3p3aw=="
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:sanafatimaa.13@gmail.com"
+class="text-purple-600 hover:text-purple-800"><i class="fas fa-envelope"></i></a>
+
+</div>
+</div>
+</div>
+
+<!--Sameer-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sameer.png" alt="Design Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Shaik Sameer</h3>
+<p class="text-purple-600 font-semibold mb-2">Designing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/shaik-sameer-211ab6298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-linkedin"></i></a>
+<a href="mailto:shaiksameerahmed786786@gmail.com"
+class="text-purple-600 hover:text-purple-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Swathi-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/swathi.png" alt="Design Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sirupolu Swathi </h3>
+<p class="text-purple-600 font-semibold mb-2">Designing Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/swathi-sirupolu-b9a885259"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/swathi0202/swathi0202"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=o0e7t42"
+class="text-purple-500 hover:text-purple-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:swathisirupolu@gmail.com"
+class="text-purple-600 hover:text-purple-800"><i class="fas fa-envelope"></i></a>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Organizing Team -->
+<div id="organizing" class="domain-section">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!--Rithika-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/ritika.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Rithika Sunkari</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/rithika-s-170a10279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/RithikaSunkari"
+class="text-green-600 hover:text-green-800"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/rithikasunkari?igsh=cnA3eGtubG93MHV3"
+class="text-green-500 hover:text-green-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:s.m.rithikarao@gmail.com" class="text-green-600 hover:text-green-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Vamshi -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/vamshi.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Ryagalla Vamshi Krishna Sai</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/vamshi-krishna-sai-ryagalla-71987a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/vamshikrishnasai"
+class="text-green-600 hover:text-green-800"><i class="fab fa-github"></i></a>
+<a href="mailto:ryagallavamshikrishnasai@gmail.com"
+class="text-green-600 hover:text-green-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Shivani-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/shivani.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Shivani Sajjanshetty</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/shivani-sajjanshetty-6345a72b8/"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/shivanishetty005"
+class="text-green-600 hover:text-green-800"><i class="fab fa-github"></i></a>
+
+<a href="mailto:shivanishetty238@gmail.com"
+class="text-green-600 hover:text-green-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Vijay-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/vijay.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Vijay Guttula</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/vijay-guttula/"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/VJLIVE" class="text-green-600 hover:text-green-800"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/_vj_2210/"
+class="text-green-500 hover:text-green-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:vijayguttula001@gmail.com"
+class="text-green-600 hover:text-green-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Lokesh -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/lokesh.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Madari Lokesh</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">3rd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/madari-lokesh-822888259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/madari-lokesh"
+class="text-green-600 hover:text-green-800"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/madarilokesh?igsh=MThtc3Zia2o4M3ZpNg=="
+class="text-green-500 hover:text-green-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:madarilokesh25@gmail.com" class="text-green-600 hover:text-green-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Udhay -->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/Udhay.png" alt="Organizing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-green-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Pasula Udhaykiran</h3>
+<p class="text-green-600 font-semibold mb-2">Organizing Member</p>
+<p class="text-gray-600 text-center text-sm">3rd Year</p>
+<div class="flex space-x-3 mt-4">
+<a href="http://linkedin.com/in/pasula-udhaykiran-074890259/"
+class="text-green-500 hover:text-green-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/Udhaykiran123"
+class="text-green-600 hover:text-green-800"><i class="fab fa-github"></i></a>
+<a href="mailto:udhay2316@gmail.com" class="text-green-600 hover:text-green-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Production Team -->
+<div id="production" class="domain-section">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!--Sankeerth-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sankeerth.png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Alla Sankeerth</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/sankeerth-alla-3b4a3b336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/sankeerth1234"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/sankeerth__chowdary?igsh=ZXg2a2VzNHJhajBq"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:sankeerth.ch03@gmail.com"
+class="text-yellow-600 hover:text-yellow-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Aryan-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/aryan.png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Aryan shravan chouti</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/aryanshravan-chouti-a93876330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/dashboard" class="text-yellow-500 hover:text-yellow-700"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/_aryan_shravan_?igsh=aWlydWg2bnp3cXpp"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:aryanshravanchouti123@gmail.com"
+class="text-yellow-600 hover:text-yellow-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Yuvraj-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/yuvraj.png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Yuvraj Singh chauhan</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/yuvraj-singh-649791273"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=9ynlc01"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:ys0609392@gmail.com" class="text-yellow-600 hover:text-yellow-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Harini-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/harini(productions).png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Harini Adusumalli</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/harini-adusumalli-83110b2b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.instagram.com/sky._.and_haru?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:hariniadusumalli.24@gmail.com"
+class="text-yellow-600 hover:text-yellow-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Raghava-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/raghava.png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sri Raghavendra Rao Deshpande</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/sri-raghavendra-rao-deshpande-a5534328b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/RaghavaCoder"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/raghavendra_1309?igsh=MTJlZWlzOHUzZmRteA=="
+class="text-yellow-500 hover:text-yelow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:raghavendradeshpande852@gmail.com"
+class="text-yellow-600 hover:text-yellow-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Sindhu-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/sindhu.png" alt="Production Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-yellow-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Sindhu</h3>
+<p class="text-yellow-600 font-semibold mb-2">Production Member</p>
+<p class="text-gray-600 text-center text-sm">3rd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/chintakuntla-sindhu-886896259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/sindhuu.u?igsh=MWJ1YzN6Y2ltZDFqYg=="
+class="text-yellow-500 hover:text-yellow-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:sindhuchintakuntla@gmail.com"
+class="text-yellow-600 hover:text-yellow-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Marketing Team -->
+<div id="marketing" class="domain-section">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!--Adarsh-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/adarsh.png" alt="Marketing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">L Adarsh Reddy </h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Member</p>
+<p class="text-gray-600 text-center text-sm">1st year</p>
+<div class="flex space-x-3 mt-4">
+
+<a href="https://www.instagram.com/adarshlingareddy0406?igsh=MXE0Mm1vbGxxbHh3ZA%3D%3D&utm_source=qr"
+class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:adarshreddy6969@gmail.com" class="text-red-600 hover:text-red-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Barnali-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/barnali.png" alt="Marketing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Barnali Bhowmik</h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/barnali-bhowmik-222311285/"
+class="text-red-500 hover:text-red-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/BarnaliBhowmik" class="text-red-600 hover:text-red-800"><i
+class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/b.arhana_1721"
+class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:cocoospeak@gmail.com" class="text-red-600 hover:text-red-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Anjani-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/anjani.png" alt="Marketing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Chiluka Anjani</h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/anjani-chiluka-b29b74237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-red-500 hover:text-red-700"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.instagram.com/anjani_datta_reddy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:anjanidattareddy@gmail.com" class="text-red-600 hover:text-red-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Harini-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/harini(marketing).png" alt="Marketing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Harini Adla</h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/adla-harini-b099a6355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-red-500 hover:text-red-700"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.instagram.com/hariniiii.88?igsh=eWZ4OTN1bW1na3Uw"
+class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:adlaharini8@gmail.com" class="text-red-600 hover:text-red-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Nithya-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/nitya.png" alt="Marketing Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-red-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Nithya</h3>
+<p class="text-red-600 font-semibold mb-2">Marketing Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/nithya-neetu-6b801228b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-red-500 hover:text-red-700"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.instagram.com/nithyaaa_888?igsh=Nm5kd2M5NTd3NGMy"
+class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:nithyaneetu411@gmail.com" class="text-red-600 hover:text-red-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Documentation Team -->
+<div id="documentation" class="domain-section">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!--Thrishank-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/thrishank.png" alt="Documentation Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-indigo-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">A. Thrishank</h3>
+<p class="text-indigo-600 font-semibold mb-2">Documentation Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/a-thrishank-8aa7031b5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/3shank633/"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:ak3shank@gmail.com" class="text-indigo-600 hover:text-indigo-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Bhavagnya-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/bhavagnya.png" alt="Documentation Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-indigo-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">P. Naga Bhavagnya</h3>
+<p class="text-indigo-600 font-semibold mb-2">Documentation Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="http://www.linkedin.com/in/bhavagnya-p-384858297"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/bhavi1_7?igsh=b3ljaGU3cDA5ejA2"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:bhavagnya.17@gmail.com" class="text-indigo-600 hover:text-indigo-800"><i
+class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+<!--Varshitha-->
+<div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6 flex flex-col items-center">
+<img src="assets/member_img/varshitha.png" alt="Documentation Team Member"
+class="w-32 h-32 rounded-full object-cover border-4 border-indigo-200 mb-4">
+<h3 class="text-xl font-bold text-gray-800">Varshitha Reddy</h3>
+<p class="text-indigo-600 font-semibold mb-2">Documentation Member</p>
+<p class="text-gray-600 text-center text-sm">2nd year</p>
+<div class="flex space-x-3 mt-4">
+<a href="https://www.linkedin.com/in/varshitha-reddy-1990bb2b8/"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/varshithareddy_5/?next=%2F"
+class="text-indigo-500 hover:text-indigo-700"><i class="fab fa-instagram"></i></a>
+<a href="mailto:varshithareddy5656@gmail.com"
+class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,11 +1121,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="/events" class="text-gray-400 hover:text-white">Events</a></li>
-                        <li><a href="/projectsud" class="text-gray-400 hover:text-white">Projects</a></li>
-                        <li><a href="/team" class="text-gray-400 hover:text-white">Team</a></li>
-                        <li><a href="/wall-of-fame-ud" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
+                        <li><a href="/index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="/events.html" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="/projectsud.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="/team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="/wall-of-fame-ud.html" class="text-gray-400 hover:text-white">Wall-Of-Fame</a></li>
                     </ul>
                 </div>
 
@@ -188,9 +1166,9 @@
             </div>
         </div>
     </footer>
-                   
-    <script src="js/header.js" defer></script>
-    <script src="js/projectsud.js"></script>
 
+    <script src="js/header.js" defer></script>
+    <script src="js/team.js"></script>
 </body>
+
 </html>
