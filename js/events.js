@@ -222,7 +222,8 @@ function attachDetailsButtonListeners() {
                     const img = document.createElement('img');
                     img.src = photo;
                     img.alt = `${title} event photo`;
-                    img.classList.add('w-full', 'flex-shrink-0', 'object-cover', 'cursor-pointer');
+                    const imageFit = currentEventCard.dataset.imageFit || "cover";
+                    img.classList.add('w-full', 'flex-shrink-0', imageFit === 'contain' ? 'object-contain' : 'object-cover', 'cursor-pointer');
                     // Add tap handler for full-screen
                     img.dataset.index = index; // Store index for reference
                     img.addEventListener('click', (e) => {
